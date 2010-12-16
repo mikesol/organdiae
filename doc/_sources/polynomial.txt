@@ -1,0 +1,12 @@
+.. polynomial
+
+********************************
+Polynomials
+********************************
+
+This module exists to implement piecewise polynomials that eventually allow for convolution across buses.  In doing so, it implements polynomials, impulses, and delta functions as well.  Uses of these objects can be seen in the following documents: :doc:`quickguide` and :doc:`concepts`.
+
+.. automodule:: organdiae.core.polynomial
+	:members:
+
+

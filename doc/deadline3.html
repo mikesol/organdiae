@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DEADLINE &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">DEADLINE</a><ul>
+<li><a class="reference external" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/deadline3.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="deadline">
+<h1>DEADLINE<a class="headerlink" href="#deadline" title="Permalink to this headline">¶</a></h1>
+<object data="_images/deadline3.svg" type="image/svg+xml"><embed src="_images/deadline3.svg" type="image/svg+xml" /></object>
+<p>Intuition is great.  It&#8217;s a shame that you have none.  So, you go shopping on the free sound library to do some listening and find ten sounds that make you happy.  You put them in a directory <tt class="docutils literal"><span class="pre">pillage</span></tt> and use os.walk to import them into your session.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">booty</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="s">&#39;sonic plunder&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&#39;pillage&#39;</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">booty</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">)))))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">booty</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. /private/tmp/deadline3.rst/pillage/cryingbaby.aif</span>
+<span class="go">     1. /private/tmp/deadline3.rst/pillage/singing_bowl.aif</span>
+<span class="go">     2. /private/tmp/deadline3.rst/pillage/old_engine.aif</span>
+<span class="go">     3. /private/tmp/deadline3.rst/pillage/japanese_conversation.aif</span>
+<span class="go">     4. /private/tmp/deadline3.rst/pillage/vacuum_cleaner.aif</span>
+<span class="go">     5. /private/tmp/deadline3.rst/pillage/cat.aif</span>
+<span class="go">     6. /private/tmp/deadline3.rst/pillage/train_whistle.aif</span>
+<span class="go">     7. /private/tmp/deadline3.rst/pillage/running_water.aif</span>
+<span class="go">     8. /private/tmp/deadline3.rst/pillage/mouse.aif</span>
+<span class="go">     9. /private/tmp/deadline3.rst/pillage/glassware.aif</span>
+<span class="go">EDGES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">booty</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The files listed in this example are fictional.  Any resemblance to real files is coincidental.  For this reason, this example will not work on your machine unless you have these files/folders in your current working directory.  To download a zip of &#8220;dummy&#8221; files that can act as stand-ins (ie files, all of which are less than 1kb, that act as placeholders), click <a href="_downloads/ofiles.tar.gz"><strong class="xref">here</strong></a>.</p>
+</div>
+<p>You add to this your favorite Emilie Lesbros sounds that you keep around for rainy and non-rainy days alike</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">em</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="s">&#39;emilie lesbros sounds&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&#39;emilie&#39;</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">em</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">)))))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">em</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. /private/tmp/deadline3.rst/emilie/bubbles.aif</span>
+<span class="go">     1. /private/tmp/deadline3.rst/emilie/buzzzzzz.aif</span>
+<span class="go">     2. /private/tmp/deadline3.rst/emilie/pop.aif</span>
+<span class="go">     3. /private/tmp/deadline3.rst/emilie/freakout.aif</span>
+<span class="go">     4. /private/tmp/deadline3.rst/emilie/whistling.aif</span>
+<span class="go">     5. /private/tmp/deadline3.rst/emilie/laughter.aif</span>
+<span class="go">EDGES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">em</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You like these sounds so much that you are hesitant to write a string trio anymore, wanting instead to be a DJ.  But why not?  You decide to write a work where the performers listen to your improvisation through headphones and respond to it.  You write some SuperCollider code to create these improvisations, bounce out a few, and load them all into your Organdiae graph</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">scdict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scsess</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="s">&#39;supercollider goodness&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&#39;scdocs&#39;</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">scdict</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">))))</span>
+<span class="gp">... </span>            <span class="n">scsess</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">scdict</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;example&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&#39;scbounces&#39;</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">fileg</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">))))</span>
+<span class="gp">... </span>            <span class="n">scsess</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">fileg</span><span class="p">,</span> <span class="n">scdict</span><span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sb</span><span class="p">(</span><span class="n">example</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">scsess</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>While you think this may be interesting for a while, you worry the piece will lack consistency.  So, you intersperse several &#8220;cues&#8221; throughout the score that allow for more traditional &#8220;playing together&#8221; like &#8220;Haydn&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cues</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="s">&#39;cues&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">&#39;cues&#39;</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">cues</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="p">)))))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cues</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. /private/tmp/deadline3.rst/cues/hummmm.txt</span>
+<span class="go">     1. /private/tmp/deadline3.rst/cues/descending.txt</span>
+<span class="go">     2. /private/tmp/deadline3.rst/cues/laugh.txt</span>
+<span class="go">     3. /private/tmp/deadline3.rst/cues/cry.txt</span>
+<span class="go">     4. /private/tmp/deadline3.rst/cues/sweet.txt</span>
+<span class="go">     5. /private/tmp/deadline3.rst/cues/problematic.txt</span>
+<span class="go">EDGES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">cues</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, it&#8217;s just a question of how to intersperse these &#8220;listenings&#8221; and these instrcutions.</p>
+<ul class="simple">
+<li><a class="reference external" href="deadline8.html"><em>Intuition</em></a> has worked so far...keep going!</li>
+<li>Time to write an <a class="reference external" href="deadline9.html"><em>algorithm</em></a>.</li>
+</ul>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference external" href="modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference external" href="search.html"><em>Search Page</em></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It&#8217;s ok to cheat...click here to see <a href="_downloads/deadlineOPS.svg"><strong class="xref">all possible options</strong></a>.
+Also, if you want to download the source code up until this point, click <a href="_downloads/deadline3.rst.py"><strong class="xref">here</strong></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

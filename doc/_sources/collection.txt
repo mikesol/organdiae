@@ -1,0 +1,12 @@
+.. collection
+
+********************************
+CFunction and Collections
+********************************
+
+This module provides a class called ``CFunction`` that allows the ``Crawler`` to move along Edge buses as well as a ``Collection`` class that provides a trivial implementation of a CFunction return value (it is used to implement ``Tags`` in the :doc:`standard bootstrap <bootstrap>`).  Uses of CFunction can be seen in the following documents: :doc:`quickguide` and :doc:`concepts`.
+
+.. automodule:: organdiae.core.collection
+	:members:
+
+

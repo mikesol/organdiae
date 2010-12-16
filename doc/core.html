@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Organdiae’s core &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="API" href="api.html" />
+    <link rel="next" title="Bootstrapping in Organdiae" href="bootstrap.html" />
+    <link rel="prev" title="API" href="api.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="bootstrap.html" title="Bootstrapping in Organdiae"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">API</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="api.html"
+                                  title="previous chapter">API</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="bootstrap.html"
+                                  title="next chapter">Bootstrapping in Organdiae</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/core.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-organdiae.core.core">
+<h1>Organdiae&#8217;s core<a class="headerlink" href="#module-organdiae.core.core" title="Permalink to this headline">¶</a></h1>
+<p><tt class="docutils literal"><span class="pre">organdiae.core.core</span></tt> contains everything that Organdiae &#8220;needs&#8221; to function.  By &#8220;needs&#8221;, we mean that without these things, Organdiae would cease to be Organdiae and would be something else infinitely more boring and buggy.</p>
+<p>Other modules in <tt class="docutils literal"><span class="pre">organdiae.core</span></tt> are discussed in other sections of the API.  The difference between <tt class="docutils literal"><span class="pre">core</span></tt> and <tt class="docutils literal"><span class="pre">addon</span></tt> is in some cases debatable, and the following standard was used as an organizing principle:</p>
+<blockquote>
+If Organdiae&#8217;s functionality cannot be satisfactorily explained without making reference to something, it belongs in the core.</blockquote>
+<p>But for the present document you&#8217;re reading, this is neither here or there.  Consider yourself on a need-to-know basis with <tt class="docutils literal"><span class="pre">organdiae.core.core</span></tt>.  <em>Profitez-en</em>!</p>
+<dl class="class">
+<dt id="organdiae.core.core.Crawler">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Crawler</tt><a class="headerlink" href="#organdiae.core.core.Crawler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effectuates traversals (crawls) of a <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.
+This is done through two main methods, neither of which have a docstring, both of which are described here.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">crawl_with_subgraphs</span></tt> crawls through a <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance recursively (ie touching upon all nodes that are also instances of DiGraph).</li>
+<li><tt class="docutils literal"><span class="pre">crawl_without_subgraphs</span></tt> crawls through a <tt class="docutils literal"><span class="pre">DiGraph</span></tt> without crawling through pertinant subgraphs.</li>
+</ul>
+<p>The arguments to both of these methods are:</p>
+<dl class="docutils">
+<dt><cite>gl</cite></dt>
+<dd>A list of graphs to crawl.</dd>
+<dt><cite>vl</cite></dt>
+<dd>A list of lists of vertices.  Each list corresponds to a graph in <tt class="docutils literal"><span class="pre">gl</span></tt>.  Each vertex in each list is a point to start the crawl from.  The algorithm is greedy, so it will crawl maximally with the first vertex, then move on to the second, etc.  Useful when crawling through structures where buses depend on the reults of other buses to effectuate certain calculations.</dd>
+<dt><cite>pl</cite></dt>
+<dd>A list of lists of buses.  Each list gorresponds to a graph in <tt class="docutils literal"><span class="pre">gl</span></tt>.  Each bus in each list is a bus to traverse.  Again, this is greedy.</dd>
+<dt><cite>il</cite></dt>
+<dd>A list of lists of initial values.  That is, because the crawls operate by convolution, we need a first value to convolve from.  Often, this is simply a unit impulse.</dd>
+</dl>
+<p>See the tutorial on crawling for a detailed example of how the crawler works.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.DiGraph">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">DiGraph</tt><big>(</big><em>ilsagitde=''</em>, <em>name=None</em>, <em>filters=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>DiGraph is the lifeblood of Organdiae.  It has been rewritten hundreds of times in all shapes and sizes and is under active development.</p>
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.ae">
+<tt class="descname">ae</tt><big>(</big><em>*e</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.ae" title="Permalink to this definition">¶</a></dt>
+<dd>Add an edge to the current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.  If only one argument is provided, it should be an edge.
+If multiple arguments are provided, they will be fed into an <tt class="docutils literal"><span class="pre">Edge</span></tt> constructor.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.aes">
+<tt class="descname">aes</tt><big>(</big><em>*es</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.aes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add every edge in list of edges <cite>es</cite> to the current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.  The edges should be defined according to one of the conventions in the <tt class="docutils literal"><span class="pre">ae</span></tt> docstring.</p>
+<p>For example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">avs</span><span class="p">([</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;mike&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">aes</span><span class="p">([[</span><span class="n">foo</span><span class="p">,</span><span class="n">bar</span><span class="p">],</span><span class="n">Edge</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span><span class="n">mike</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">    0. foo</span>
+<span class="go">    1. bar</span>
+<span class="go">    2. mike</span>
+<span class="go">EDGES</span>
+<span class="go">    0. foo --&gt; bar</span>
+<span class="go">    1. foo --&gt; mike</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.af">
+<tt class="descname">af</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.af" title="Permalink to this definition">¶</a></dt>
+<dd>Add <tt class="docutils literal"><span class="pre">Filter</span></tt> <cite>f</cite> to the <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.av">
+<tt class="descname">av</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.av" title="Permalink to this definition">¶</a></dt>
+<dd>Add vertex <cite>v</cite> to current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance, where <cite>v</cite> is a subclass of <tt class="docutils literal"><span class="pre">DiGraph</span> <span class="pre">or</span> <span class="pre">an</span> <span class="pre">instance</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">subclass</span> <span class="pre">of</span> <span class="pre">``DiGraph</span></tt>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.avs">
+<tt class="descname">avs</tt><big>(</big><em>*vs</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.avs" title="Permalink to this definition">¶</a></dt>
+<dd>Add list of vertices <cite>vs</cite> to current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance, where each <tt class="docutils literal"><span class="pre">v</span></tt> in <cite>vs</cite> is a subclass of <tt class="docutils literal"><span class="pre">DiGraph</span></tt> or an instance of a subclass of <tt class="docutils literal"><span class="pre">DiGraph</span></tt>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.g">
+<tt class="descname">g</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>The swiss army knife of getting.  Arguments tell where to look in the digraph.
+First, invoke <tt class="docutils literal"><span class="pre">p</span></tt> (potentially with a <tt class="docutils literal"><span class="pre">regex</span></tt>) to see what&#8217;s in the DiGraph instance.  Then...</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">dg.v(0)</span></tt> returns the vertex set.  <tt class="docutils literal"><span class="pre">dg.v(0,X)</span></tt> returns the X element of said set&#8217;s list implementation.</li>
+<li><tt class="docutils literal"><span class="pre">dg.v(1)</span></tt> returns the edge set. <tt class="docutils literal"><span class="pre">dg.v(1,X)</span></tt> returns the X element of said set list implementation.</li>
+<li><tt class="docutils literal"><span class="pre">dg.v(1,X,Item,0)</span></tt> returns the CFunction at bus <tt class="docutils literal"><span class="pre">Item</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">dg.v(1,X,Tiem,1)</span></tt> returns the result of the CFunction from the most recent crawl (may be empty).</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.normalizeEdges">
+<tt class="descname">normalizeEdges</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.normalizeEdges" title="Permalink to this definition">¶</a></dt>
+<dd>Debugging method - if you tinker with <tt class="docutils literal"><span class="pre">self._e</span></tt> or <tt class="docutils literal"><span class="pre">self._v</span></tt> accidentally, run this to make sure all is correctly represented in the graph.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.p">
+<tt class="descname">p</tt><big>(</big><em>regex=None</em>, <em>r=False</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.p" title="Permalink to this definition">¶</a></dt>
+<dd>Prints the current contents of the digraph, filtering each element&#8217;s <tt class="docutils literal"><span class="pre">ilsagitde</span></tt> by <cite>regex</cite> if provided.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.pv">
+<tt class="descname">pv</tt><big>(</big><em>offset=0</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.pv" title="Permalink to this definition">¶</a></dt>
+<dd>A giant, verbose printing, meant for debugging.  When all else fails, dump this to a file and surf through it to see if the system is behaving as expected.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.re">
+<tt class="descname">re</tt><big>(</big><em>e</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.re" title="Permalink to this definition">¶</a></dt>
+<dd>Remove edge <cite>e</cite> from current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.res">
+<tt class="descname">res</tt><big>(</big><em>*es</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.res" title="Permalink to this definition">¶</a></dt>
+<dd>Remove all edges in <cite>es</cite> from current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.rv">
+<tt class="descname">rv</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.rv" title="Permalink to this definition">¶</a></dt>
+<dd>Remove vertex <cite>v</cite> from current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.DiGraph.rvs">
+<tt class="descname">rvs</tt><big>(</big><em>*vs</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.rvs" title="Permalink to this definition">¶</a></dt>
+<dd>Remove all vertices in <cite>vs</cite> from current <tt class="docutils literal"><span class="pre">DiGraph</span></tt> instance.</dd></dl>
+
+<dl class="staticmethod">
+<dt id="organdiae.core.core.DiGraph.toGraphViz">
+<em class="property">static </em><tt class="descname">toGraphViz</tt><big>(</big><em>digraph</em>, <em>path</em>, <em>nested=True</em>, <em>create=True</em>, <em>labeling_scheme=None</em>, <em>program='neato'</em>, <em>depth=0</em><big>)</big><a class="headerlink" href="#organdiae.core.core.DiGraph.toGraphViz" title="Permalink to this definition">¶</a></dt>
+<dd>Exports a current graph to <cite>path</cite>, invoking graphViz if <cite>create=True</cite> and using labeling scheme <cite>labeling_scheme</cite> to label the edges.
+The normal bootstrap identifies a simple and effective labeling scheme.</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Edge">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Edge</tt><big>(</big><em>v1</em>, <em>v2</em>, <em>f={}</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>An edge from v1 to v2 with buses traveling along f.</p>
+<dl class="method">
+<dt id="organdiae.core.core.Edge.ab">
+<tt class="descname">ab</tt><big>(</big><em>b</em>, <em>f</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Edge.ab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a bus b that executes f along this edge.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt><cite>b</cite></dt>
+<dd>A subclass of DiGraph with return_type defined in its dictionary</dd>
+<dt><cite>f</cite></dt>
+<dd>A CFunction that returns return_type</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.core.Edge.rb">
+<tt class="descname">rb</tt><big>(</big><em>b</em>, <em>f</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Edge.rb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces a bus b that executes f along this edge.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt><cite>b</cite></dt>
+<dd>A subclass of DiGraph with return_type defined in its dictionary</dd>
+<dt><cite>f</cite></dt>
+<dd>A CFunction that returns return_type</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Edgeless">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Edgeless</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Edgeless" title="Permalink to this definition">¶</a></dt>
+<dd>Filter that rejects all addition of edges.</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Filter">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Filter</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all filters.  Currently, Vertex, Edgeless, Tree, and Forest derive from it.</p>
+<p>Every filter must define 8 methods that either return <tt class="xref docutils literal"><span class="pre">True</span></tt> or raise an <tt class="docutils literal"><span class="pre">OrgandiaeError</span></tt> depending on if a request is permissible or not given what the filter does.
+These methods are: <tt class="docutils literal"><span class="pre">av</span></tt>, <tt class="docutils literal"><span class="pre">avs</span></tt>, <tt class="docutils literal"><span class="pre">ae</span></tt>, <tt class="docutils literal"><span class="pre">aes</span></tt>, <tt class="docutils literal"><span class="pre">rv</span></tt>, <tt class="docutils literal"><span class="pre">rvs</span></tt>, <tt class="docutils literal"><span class="pre">re</span></tt>, <tt class="docutils literal"><span class="pre">res</span></tt>.  For more information on what these methods are, consult the documentation for DiGraph.</p>
+<dl class="staticmethod">
+<dt id="organdiae.core.core.Filter.is_a">
+<em class="property">static </em><tt class="descname">is_a</tt><big>(</big><em>digraph</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Filter.is_a" title="Permalink to this definition">¶</a></dt>
+<dd>Checks to see if the graph could have been grown entirely under this filter.
+For example, if ran with Forest, this would answer the question &#8220;Is this graph a forest?&#8221;</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Forest">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Forest</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Forest" title="Permalink to this definition">¶</a></dt>
+<dd>Filter that rejects all simple loops.</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Tree">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Tree</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Tree" title="Permalink to this definition">¶</a></dt>
+<dd>Filter that rejects all simple loops and all moves that move away from 1-connectivity.</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.core.Vertex">
+<em class="property">class </em><tt class="descclassname">organdiae.core.core.</tt><tt class="descname">Vertex</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#organdiae.core.core.Vertex" title="Permalink to this definition">¶</a></dt>
+<dd>Filter that rejects all addition statements.</dd></dl>
+
+<dl class="function">
+<dt id="organdiae.core.core.ng">
+<tt class="descclassname">organdiae.core.core.</tt><tt class="descname">ng</tt><big>(</big><em>isd</em>, <em>dg=&lt;class 'organdiae.core.core.DiGraph'&gt;</em>, <em>name=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#organdiae.core.core.ng" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this to create all subclasses of DiGraph that you care to keep (ie those you use in graphs) should be created through this function.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt><cite>isd</cite></dt>
+<dd><tt class="docutils literal"><span class="pre">ilsagitde</span></tt> for the digraph.</dd>
+<dt><cite>dg</cite></dt>
+<dd><tt class="docutils literal"><span class="pre">DiGraph</span></tt> from which this new digraph will inherit.</dd>
+<dt><cite>name</cite></dt>
+<dd><cite>True</cite> if a <tt class="docutils literal"><span class="pre">DiGraph</span></tt> with name <tt class="docutils literal"><span class="pre">isd</span></tt> should be added to the <tt class="docutils literal"><span class="pre">__main__</span></tt> namespace.</dd>
+<dt><cite>kwargs</cite></dt>
+<dd>Will be the dictionary of the new <tt class="docutils literal"><span class="pre">DiGraph</span></tt> subclass.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="organdiae.core.core.pickMe">
+<tt class="descclassname">organdiae.core.core.</tt><tt class="descname">pickMe</tt><big>(</big><em>path</em>, <em>main_d</em><big>)</big><a class="headerlink" href="#organdiae.core.core.pickMe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pickles a dictionary of items at <cite>path</cite>, pickling the organdiae class heirarchy as well.
+Used by the template created by bootstrap to save all graphs in a session.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt><cite>path</cite></dt>
+<dd>The path of the file you want to pickle to (two files, <cite>path</cite>.classdefs and <cite>path</cite>.normal, will be created)</dd>
+<dt><cite>main_d</cite></dt>
+<dd>Dictionary of stuff to save.</dd>
+</dl>
+<p>Should be used with <tt class="docutils literal"><span class="pre">unPickMe</span></tt> to get data back.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;world&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pickMe</span><span class="p">(</span><span class="s">&#39;foo.oie&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;g&#39;</span><span class="p">:</span><span class="n">g</span><span class="p">})</span>
+<span class="go">WRITING g TO foo.oie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">quit</span><span class="p">()</span>
+<span class="go">[start python again...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unPickMe</span><span class="p">(</span><span class="s">&#39;foo.oie&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. hello</span>
+<span class="go">     1. world</span>
+<span class="go">EDGES</span>
+<span class="go">     0. hello --&gt; world  </span>
+</pre></div>
+</div>
+<p>A much more satisfying and harmonious way to do this, that uses pickMe and unPickMe internally, is as follows</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;world&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sentence</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;sentence&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pick</span><span class="p">()</span>
+<span class="go">WRITING g TO foo.oie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">quit</span><span class="p">()</span>
+<span class="go">[start python again...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. hello</span>
+<span class="go">     1. world</span>
+<span class="go">EDGES</span>
+<span class="go">     0. hello --&gt; world  </span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="organdiae.core.core.unPickMe">
+<tt class="descclassname">organdiae.core.core.</tt><tt class="descname">unPickMe</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#organdiae.core.core.unPickMe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpickles a dictionary of items at <cite>path</cite>, unpickling the organdiae class heirarchy as well.
+Used by the template created by bootstrap to load all graphs in a session.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt><cite>path</cite></dt>
+<dd>The path of the file you want to unpickle (should be the same path you used for pickMe).</dd>
+</dl>
+<p>Should be used with <tt class="docutils literal"><span class="pre">pickMe</span></tt> to save data.  See <tt class="docutils literal"><span class="pre">pickMe</span></tt> docstring for more info...</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bootstrap.html" title="Bootstrapping in Organdiae"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="API"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" >API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

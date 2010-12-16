@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Organdiae’s definition, made in organdiae &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/interactive2.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="organdiae-s-definition-made-in-organdiae">
+<h1>Organdiae&#8217;s definition, made in organdiae<a class="headerlink" href="#organdiae-s-definition-made-in-organdiae" title="Permalink to this headline">¶</a></h1>
+<p>We&#8217;re kinda obsessed...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span><span class="p">(</span><span class="s">&#39;organdiae&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;Organdi&amp;aelig;&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">organdiae</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;organize&#39;</span><span class="p">,</span> <span class="s">&#39;idea&#39;</span><span class="p">,</span> <span class="s">&#39;organdie&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;root&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">roots</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ng</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">&lt;class &#39;organdiae.core.core.organize&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.idea&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.organdie&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">roots</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="n">x</span><span class="p">],</span> <span class="n">organdiae</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;pronunciation&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;class &#39;organdiae.core.core.pronunciation&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">soundslike</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&quot;&#39;&amp;#596;r g&amp;#601;n di&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">soundslike</span><span class="p">,</span><span class="n">organdiae</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">pronunciation</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&quot;Wallace Stevens&#39;s jar&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;precomposition&#39;</span><span class="p">),</span><span class="n">organdiae</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;usage&#39;</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. organize</span>
+<span class="go">     1. idea</span>
+<span class="go">     2. precomposition</span>
+<span class="go">     3. &#39;&amp;#596;r g&amp;#601;n di</span>
+<span class="go">     4. Organdi&amp;aelig;</span>
+<span class="go">     5. organdie</span>
+<span class="go">     6. Wallace Stevens&#39;s jar</span>
+<span class="go">EDGES</span>
+<span class="go">     0. organize --&gt; Organdi&amp;aelig;</span>
+<span class="go">     1. idea --&gt; Organdi&amp;aelig;</span>
+<span class="go">     2. organdie --&gt; Organdi&amp;aelig;</span>
+<span class="go">     3. &#39;&amp;#596;r g&amp;#601;n di --&gt; Organdi&amp;aelig;</span>
+<span class="go">     4. precomposition --&gt; Organdi&amp;aelig;</span>
+</pre></div>
+</div>
+<p>And the output via the GraphViz backend...</p>
+<object data="_images/organdiae.svg" type="image/svg+xml"><embed src="_images/organdiae.svg" type="image/svg+xml" /></object>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

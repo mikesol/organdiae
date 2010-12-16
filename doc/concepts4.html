@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edges Part II (Getting Edgier) &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="Organdiae in Six Concepts" href="concepts.html" />
+    <link rel="next" title="Organdiae is meant to be used interactively" href="concepts5.html" />
+    <link rel="prev" title="Edges Part I (Features and Bugs)" href="concepts3.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="concepts5.html" title="Organdiae is meant to be used interactively"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="concepts3.html" title="Edges Part I (Features and Bugs)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" accesskey="U">Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="concepts3.html"
+                                  title="previous chapter">Edges Part I (Features and Bugs)</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="concepts5.html"
+                                  title="next chapter">Organdiae is meant to be used interactively</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/concepts4.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edges-part-ii-getting-edgier">
+<span id="fourth-concept"></span><h1>Edges Part II (Getting Edgier)<a class="headerlink" href="#edges-part-ii-getting-edgier" title="Permalink to this headline">¶</a></h1>
+<p>The above-elucidated concept of edge-construction (and the tiny size of the implementing code) is inspired by libraries such as JGraph and JUNG.  What makes edges in Organdiae different, however, is that her edges can carry multiple channels of information between two vertices.  Or, for the mixing-board-inclined user, each edge is a group of busses between two nodes.</p>
+<p>Let us define a new graph and populate it with edges that use a bus called temporalGap.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">flam</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;flam&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paradiddle</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;single paradiddle&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">drag</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;single drag&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ruff</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;ruff&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ratamacue</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;single ratamacue&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;temporalGap&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">return_type</span> <span class="o">=</span> <span class="n">PiecewisePolynomial</span><span class="p">)</span>
+<span class="go">&lt;class &#39;organdiae.core.core.temporalGap&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">follows</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;follows&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rudiments</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="n">Tree</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">finalruff</span> <span class="o">=</span> <span class="n">ruff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">flam</span><span class="p">(),[</span><span class="n">drag</span><span class="p">(),</span><span class="n">ruff</span><span class="p">(),[</span><span class="n">ratamacue</span><span class="p">(),</span> <span class="n">paradiddle</span><span class="p">(),</span> <span class="p">[</span><span class="n">paradiddle</span><span class="p">()],</span> <span class="n">flam</span><span class="p">(),</span> <span class="p">[</span><span class="n">ratamacue</span><span class="p">(),</span> <span class="n">drag</span><span class="p">(),</span> <span class="p">[</span><span class="n">flam</span><span class="p">(),</span> <span class="p">[</span><span class="n">ratamacue</span><span class="p">(),</span> <span class="n">drag</span><span class="p">(),</span> <span class="p">[</span><span class="n">finalruff</span><span class="p">]]]]]]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">make_tree</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">))</span> <span class="p">:</span>
+<span class="gp">... </span>                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">([])</span> <span class="p">:</span>
+<span class="gp">... </span>                    <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="bp">None</span> <span class="p">:</span> <span class="n">graph</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="gp">... </span>                            <span class="k">else</span> <span class="p">:</span> <span class="n">graph</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">order</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">sb</span><span class="p">(</span><span class="n">follows</span><span class="p">,</span> <span class="n">nbuses</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;temporalGap&#39;</span><span class="p">]))</span>
+<span class="gp">... </span>                    <span class="k">else</span> <span class="p">:</span>
+<span class="gp">... </span>                    <span class="n">make_tree</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">order</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">order</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">make_tree</span><span class="p">(</span><span class="n">rudiments</span><span class="p">,</span> <span class="n">tree_order</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rudiments</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. single drag (hash 7761840)</span>
+<span class="go">     1. ruff (hash 7761872)</span>
+<span class="go">     2. single ratamacue (hash 7761904)</span>
+<span class="go">     3. single paradiddle (hash 7823408)</span>
+<span class="go">     4. single paradiddle (hash 7823440)</span>
+<span class="go">     5. flam (hash 7823472)</span>
+<span class="go">     6. single ratamacue (hash 7823504)</span>
+<span class="go">     7. single drag (hash 7823536)</span>
+<span class="go">     8. flam (hash 7823568)</span>
+<span class="go">     9. single ratamacue (hash 7823600)</span>
+<span class="go">     10. single drag (hash 7823632)</span>
+<span class="go">     11. flam (hash 7761808)</span>
+<span class="go">     12. ruff (hash 7761776)</span>
+<span class="go">EDGES</span>
+<span class="go">     0. flam (hash 7761808) --&gt; ruff (hash 7761872)</span>
+<span class="go">     1. single paradiddle (hash 7823408) --&gt; single paradiddle (hash 7823440)</span>
+<span class="go">     2. flam (hash 7823472) --&gt; single drag (hash 7823536)</span>
+<span class="go">     3. flam (hash 7823568) --&gt; single drag (hash 7823632)</span>
+<span class="go">     4. single drag (hash 7823536) --&gt; flam (hash 7823568)</span>
+<span class="go">     5. ruff (hash 7761872) --&gt; single ratamacue (hash 7761904)</span>
+<span class="go">     6. ruff (hash 7761872) --&gt; flam (hash 7823472)</span>
+<span class="go">     7. flam (hash 7761808) --&gt; single drag (hash 7761840)</span>
+<span class="go">     8. single drag (hash 7823632) --&gt; ruff (hash 7761776)</span>
+<span class="go">     9. ruff (hash 7761872) --&gt; single paradiddle (hash 7823408)</span>
+<span class="go">     10. flam (hash 7823472) --&gt; single ratamacue (hash 7823504)</span>
+<span class="go">     11. flam (hash 7823568) --&gt; single ratamacue (hash 7823600)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">rudiments</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;rudiments&#39;</span><span class="p">,</span> <span class="n">program</span><span class="o">=</span><span class="s">&#39;dot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/rudiments.svg" type="image/svg+xml"><embed src="_images/rudiments.svg" type="image/svg+xml" /></object>
+<p>Here, instances five different sonic &#8220;materials&#8221; are connected with edges tagged &#8220;follows&#8221;, each of which contains a bus for &#8220;temporalGap&#8221; (<tt class="docutils literal"><span class="pre">sb</span></tt>, knowing that temporal gap is numerical because it is passed in as an <tt class="docutils literal"><span class="pre">nbus</span></tt>, assigns a temporal gap of 0 with a probability of 1 for starters).  One may think of it as a sketch for several possible orderings of materials.  Now, let&#8217;s say that whenever a drag follows a flam, we want the temporal gap to be a &#8220;two-humped&#8221; probability distribution function (PDF) ranging from 0 to 4 with its peaks at 1.5 and 3.0 and a trough at 2.  Otherwise, we want the temporal gap to be a descending PDF ranging from 1 to 3</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">rudiments</span><span class="o">.</span><span class="n">_e</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">_v1</span><span class="p">,</span><span class="n">flam</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">_v2</span><span class="p">,</span><span class="n">drag</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>                    <span class="n">e</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">temporalGap</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">PiecewisePolynomial</span><span class="p">([</span><span class="n">Polynomial</span><span class="p">((</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)),</span> <span class="n">Polynomial</span><span class="p">((</span><span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">)),</span><span class="n">Polynomial</span><span class="p">((</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span><span class="n">Polynomial</span><span class="p">((</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">))],[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">],[],[]),)</span>
+<span class="gp">... </span>    <span class="k">else</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">e</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">temporalGap</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">PiecewisePolynomial</span><span class="p">([</span><span class="n">Polynomial</span><span class="p">((</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">))],[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">],[],[]),)</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<p>Now, the temporal gap between the first flam and the rest of the events can be calculated as such</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Crawler</span><span class="o">.</span><span class="n">crawl_with_subgraphs</span><span class="p">([</span><span class="n">rudiments</span><span class="p">],</span> <span class="p">[[</span><span class="n">tree_order</span><span class="p">[</span><span class="mi">0</span><span class="p">]]],</span> <span class="p">[[</span><span class="n">temporalGap</span><span class="p">]],</span> <span class="p">[[</span><span class="n">PiecewisePolynomial</span><span class="p">([],[],[</span><span class="n">Impulse</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)],[</span><span class="mf">0.</span><span class="p">])]])</span>
+</pre></div>
+</div>
+<p>A visualization of the PDF of the ruff on the tree&#8217;s lowermost rung is obtained by writing to a GNUplot readable file (and invoking GNUPlot, which Organdiae doesn&#8217;t do)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">rudiments</span><span class="o">.</span><span class="n">_e</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">_v2</span> <span class="o">==</span> <span class="n">finalruff</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">e</span><span class="o">.</span><span class="n">_cf</span><span class="p">[</span><span class="n">temporalGap</span><span class="p">]</span><span class="o">.</span><span class="n">toGNUPlot</span><span class="p">(</span><span class="s">&#39;finalRuff1.gnu&#39;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">break</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<object data="_images/finalRuff1.svg" type="image/svg+xml"><embed src="_images/finalRuff1.svg" type="image/svg+xml" /></object>
+<p>We can see that the final ruff will fall anywhere between 4 and 20 seconds after the first flam.  However, what if we wanted to know how far the final ruff will fall after the second flam in its path?  We can invoke Crawler again, this time calculating the tree from a new starting point</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Crawler</span><span class="o">.</span><span class="n">crawl_with_subgraphs</span><span class="p">([</span><span class="n">rudiments</span><span class="p">],</span> <span class="p">[[</span><span class="n">tree_order</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]]],</span> <span class="p">[[</span><span class="n">temporalGap</span><span class="p">]],</span> <span class="p">[[</span><span class="n">PiecewisePolynomial</span><span class="p">([],[],[</span><span class="n">Impulse</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)],[</span><span class="mf">0.</span><span class="p">])]])</span>
+</pre></div>
+</div>
+<p>Again, a visualization of the PDF of the ruff on the tree&#8217;s lowermost rung is obtained by via gnuplot is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">rudiments</span><span class="o">.</span><span class="n">_e</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">_v2</span> <span class="o">==</span> <span class="n">finalruff</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">e</span><span class="o">.</span><span class="n">_cf</span><span class="p">[</span><span class="n">temporalGap</span><span class="p">]</span><span class="o">.</span><span class="n">toGNUPlot</span><span class="p">(</span><span class="s">&#39;finalRuff2.gnu&#39;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">break</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<object data="_images/finalRuff2.svg" type="image/svg+xml"><embed src="_images/finalRuff2.svg" type="image/svg+xml" /></object>
+<p>More generally, the crawler algorithm works for any OneConnected graph, or more precisely, it stops any time it revisits a node along the same path (it would be crawling forever otherwise).</p>
+<p>Under the hood of the crawler algorithm is convolution method for piecewise polynomials <a class="reference internal" href="#polge73">[Polge73]</a>.  For any user of Organdiae wishing to model numerical uncertainty, said algorithm provides a computationally inexpensive way to express this uncertainty (approximately <em>O((xy)^2)</em>, where <em>x</em> is the degree of the highest polynomial in the piecewise polynomial and <em>y</em> is the number of piecewise polynomials).  This takes trivial computational time compared to direct convolution and is more versatile than convolution via DFTs, which assumes periodicity.  The source code, which is clean as a whistle, gives you indications on how to make advanced convolution functions using multiple variables that may or may not be <tt class="docutils literal"><span class="pre">PiecewisePolynomial</span></tt> instances (you can basically do anything Python can do), but for most users, basic usages like the above example are enough to make sophisticated models.</p>
+<table class="docutils citation" frame="void" id="polge73" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Polge73]</a></td><td>Polge, RJ and Hayes, RD. &#8220;Numerical Technique for the Convolution of Piecewise Polynomial Functions&#8221;. 1973. IEEE Transactions on Computers, Vol. C-22, No. 11, 970-975.</td></tr>
+</tbody>
+</table>
+<p>Organdiae&#8217;s creators believe that modelizations of uncertainty are crucial to the creative process.  Whether or not said uncertainty is then included in an actual creation (ie a musical composition with a degree of indeterminacy) is up to the user.  Rather, as a precompositional tool, Organdiae exists to answer questions such as &#8220;what would be the potential temporal profile of a system where...?&#8221;.  For the percussion composer above, he now knows that by following his rule system above, when (or rather if) the final ruff is arrived at, it has a decent chance of happening around 10 seconds with mild kertosis to the right.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="concepts5.html" title="Organdiae is meant to be used interactively"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="concepts3.html" title="Edges Part I (Features and Bugs)"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" >Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

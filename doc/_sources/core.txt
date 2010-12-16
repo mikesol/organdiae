@@ -1,0 +1,18 @@
+.. core
+
+********************************
+Organdiae's core
+********************************
+
+``organdiae.core.core`` contains everything that Organdiae "needs" to function.  By "needs", we mean that without these things, Organdiae would cease to be Organdiae and would be something else infinitely more boring and buggy.
+
+Other modules in ``organdiae.core`` are discussed in other sections of the API.  The difference between ``core`` and ``addon`` is in some cases debatable, and the following standard was used as an organizing principle:
+
+	If Organdiae's functionality cannot be satisfactorily explained without making reference to something, it belongs in the core.
+	
+But for the present document you're reading, this is neither here or there.  Consider yourself on a need-to-know basis with ``organdiae.core.core``.  *Profitez-en*!
+
+.. automodule:: organdiae.core.core
+	:members:
+
+

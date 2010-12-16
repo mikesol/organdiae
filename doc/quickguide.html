@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quick Guide to Organdiae &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="Conclusion" href="conclusion.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="tutorials.html" title="Tutorials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="conclusion.html" title="Conclusion"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">Quick Guide to Organdiae</a><ul>
+<li><a class="reference external" href="#built-in">Built-In</a></li>
+<li><a class="reference external" href="#bootstrap">Bootstrap</a></li>
+<li><a class="reference external" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="conclusion.html"
+                                  title="previous chapter">Conclusion</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="tutorials.html"
+                                  title="next chapter">Tutorials</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/quickguide.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="quick-guide-to-organdiae">
+<h1>Quick Guide to Organdiae<a class="headerlink" href="#quick-guide-to-organdiae" title="Permalink to this headline">¶</a></h1>
+<p>This guide is so quick that you&#8217;ll miss it if you blink.  Organdiae&#8217;s basic functionality is covered, an example is given, and you can download this example <a href="_downloads/quickguide.rst.py"><strong class="xref">here</strong></a>.  For more detail, consult the <a class="reference external" href="api.html"><em>API</em></a>.</p>
+<div class="section" id="built-in">
+<h2>Built-In<a class="headerlink" href="#built-in" title="Permalink to this headline">¶</a></h2>
+<p>The following functionality is built into Organdiae.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>DiGraph</dt>
+<dd><ul class="first last simple">
+<li>av = add vertex</li>
+<li>avs = add vertices</li>
+<li>ae = add edge</li>
+<li>aes = add edges</li>
+<li>rv = remove vertex</li>
+<li>rvs = remove vertices</li>
+<li>re = remove edges</li>
+<li>res = remove edges</li>
+<li>p = print</li>
+<li>g = get</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Edge</dt>
+<dd><ul class="first last simple">
+<li>ab = add bus</li>
+<li>rb = replace bus</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Functions</dt>
+<dd><ul class="first last simple">
+<li>ng = named digraph</li>
+<li>bs = bootstrap</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="bootstrap">
+<h2>Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h2>
+<p>The following functionality is defined in the standard bootstrap file.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Functions</dt>
+<dd><ul class="first last simple">
+<li>sb = standard bus</li>
+<li>gv = to GraphViz</li>
+<li>pick = pickle everything in session</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Filters</dt>
+<dd><ul class="first last simple">
+<li>F = Forest</li>
+<li>T = Tree</li>
+<li>V = Vertex</li>
+<li>E = Edgeless</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Polynomials</dt>
+<dd><ul class="first last simple">
+<li>PP = PiecewisePolynomial</li>
+<li>P = Polynomial</li>
+<li>I = Impulse</li>
+<li>D = DeltaFunction</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Crawler</dt>
+<dd><ul class="first last simple">
+<li>crawl_with_subgraphs</li>
+<li>crawl_without_subgraphs</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Other</dt>
+<dd><ul class="first last simple">
+<li>CF = CFunction</li>
+<li>C = Collection</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Most of the above in a handful of lines</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span><span class="p">(</span><span class="s">&#39;declaration&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="s">&#39;he sells sea shells by the sea shore&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">follows</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;follows&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="n">words</span><span class="p">[</span><span class="n">x</span><span class="p">]],</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">words</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span> <span class="n">sb</span><span class="p">(</span><span class="n">follows</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;words&#39;</span><span class="p">,</span> <span class="n">program</span><span class="o">=</span><span class="s">&#39;dot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">avs</span><span class="p">(</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;state1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;state2&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;state3&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;state4&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weighted</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;weighted connection&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e1</span> <span class="o">=</span> <span class="n">Edge</span><span class="p">(</span><span class="n">state1</span><span class="p">,</span> <span class="n">state2</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">weighted</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e2</span> <span class="o">=</span> <span class="n">Edge</span><span class="p">(</span><span class="n">state1</span><span class="p">,</span> <span class="n">state3</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">weighted</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e3</span> <span class="o">=</span> <span class="n">Edge</span><span class="p">(</span><span class="n">state2</span><span class="p">,</span> <span class="n">state4</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">weighted</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Weight</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;Weight&#39;</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="n">PP</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fstr</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;a = (args[0].deltaFunction().convolve(args[1].deltaFunction())).piecewisePolynomial()&#39;</span><span class="p">,</span><span class="s">&#39;a&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. state1</span>
+<span class="go">     1. state2</span>
+<span class="go">     2. state3</span>
+<span class="go">     3. state4</span>
+<span class="go">EDGES</span>
+<span class="go">     0. state1 --&gt; state2</span>
+<span class="go">     1. state1 --&gt; state3</span>
+<span class="go">     2. state2 --&gt; state4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">ab</span><span class="p">(</span><span class="n">Weight</span><span class="p">,</span> <span class="n">CF</span><span class="p">(</span><span class="n">fstrings</span><span class="o">=</span><span class="n">fstr</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">PP</span><span class="p">([</span><span class="n">P</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.125</span><span class="p">)),</span><span class="n">P</span><span class="p">((</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">))],[</span><span class="o">-</span><span class="mf">4.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],[</span><span class="n">I</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)],[</span><span class="mf">0.</span><span class="p">]),)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">ab</span><span class="p">(</span><span class="n">Weight</span><span class="p">,</span> <span class="n">CF</span><span class="p">(</span><span class="n">fstrings</span><span class="o">=</span><span class="n">fstr</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">PP</span><span class="p">([</span><span class="n">P</span><span class="p">((</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">)),</span><span class="n">P</span><span class="p">((</span><span class="mf">3.</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="p">))],[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">3.</span><span class="p">],[],[]),)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">ab</span><span class="p">(</span><span class="n">Weight</span><span class="p">,</span> <span class="n">CF</span><span class="p">(</span><span class="n">fstrings</span><span class="o">=</span><span class="n">fstr</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">PP</span><span class="p">([</span><span class="n">P</span><span class="p">((</span><span class="mf">1.</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)),</span><span class="n">P</span><span class="p">((</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">1.</span><span class="p">))],[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="mf">4.</span><span class="p">],[],[]),)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;states&#39;</span><span class="p">,</span> <span class="n">program</span><span class="o">=</span><span class="s">&#39;dot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Crawler</span><span class="o">.</span><span class="n">crawl_with_subgraphs</span><span class="p">([</span><span class="n">h</span><span class="p">],[[</span><span class="n">h</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]],[[</span><span class="n">Weight</span><span class="p">]],[[</span><span class="n">PP</span><span class="p">([],[],[</span><span class="n">I</span><span class="p">(</span><span class="mf">1.</span><span class="p">)],[</span><span class="mf">0.</span><span class="p">])]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">,</span><span class="n">e3</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">edge</span><span class="o">.</span><span class="n">_cf</span><span class="p">[</span><span class="n">Weight</span><span class="p">]</span><span class="o">.</span><span class="n">toGNUPlot</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">_v2</span><span class="o">.</span><span class="n">ilsagitde</span><span class="o">+</span><span class="s">&#39;.gnu&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pick</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This produces the following results.</p>
+<p>words.svg</p>
+<object data="_images/words.svg" type="image/svg+xml"><embed src="_images/words.svg" type="image/svg+xml" /></object>
+<p>states.svg</p>
+<object data="_images/states.svg" type="image/svg+xml"><embed src="_images/states.svg" type="image/svg+xml" /></object>
+<p>state2.svg</p>
+<object data="_images/state2.svg" type="image/svg+xml"><embed src="_images/state2.svg" type="image/svg+xml" /></object>
+<p>state3.svg</p>
+<object data="_images/state3.svg" type="image/svg+xml"><embed src="_images/state3.svg" type="image/svg+xml" /></object>
+<p>state4.svg</p>
+<object data="_images/state4.svg" type="image/svg+xml"><embed src="_images/state4.svg" type="image/svg+xml" /></object>
+<p>To access words.svg, look in the folder <em>words</em> in your current working directory.  To access states.svg, look in the folder <em>states</em> in your current working directory.  These images are best viewed in Firefox.  The files <em>state2.svg</em>, <em>state3.svg</em>, and <em>state4.svg</em> were generated from <em>state2.gnu</em>, <em>state3.gnu</em>, and <em>state4.gnu</em> respectively using GNUPlot&#8217;s svg viewer.  You should be able to type <tt class="docutils literal"><span class="pre">gnuplot</span> <span class="pre">state1.gnu</span></tt> on the command line to see an image of this file without exporting it to any particular file format.  To learn more about invoking gnuplot, see the <a class="reference external" href="http://www.gnuplot.info">GNUPlot website</a>.</p>
+<p>Remove methods work just like their add sistren.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorials.html" title="Tutorials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="conclusion.html" title="Conclusion"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

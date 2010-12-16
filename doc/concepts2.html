@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Filtering graph growth &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="Organdiae in Six Concepts" href="concepts.html" />
+    <link rel="next" title="Edges Part I (Features and Bugs)" href="concepts3.html" />
+    <link rel="prev" title="Classes/Vertices and Instances/Graphs" href="concepts1.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="concepts3.html" title="Edges Part I (Features and Bugs)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="concepts1.html" title="Classes/Vertices and Instances/Graphs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" accesskey="U">Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="concepts1.html"
+                                  title="previous chapter">Classes/Vertices and Instances/Graphs</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="concepts3.html"
+                                  title="next chapter">Edges Part I (Features and Bugs)</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/concepts2.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="filtering-graph-growth">
+<span id="second-concept"></span><h1>Filtering graph growth<a class="headerlink" href="#filtering-graph-growth" title="Permalink to this headline">¶</a></h1>
+<p>Graph theory has defined several special graphs, such as &#8220;trees&#8221; and &#8220;k-connected graphs&#8221;, that arise in several important theoretical and practical contexts.  Currently, all major mind-mapping software allows one to create only trees (1-connected graph with no simple loops) or forests (collections of these trees).  Major graph libraries tend to allow for the creation of several different graph types (ie JUNG allows for both forests and trees), but these are fixed decisions: once a tree, the graph will always be a tree unless all of the information is transfered to <em>another</em> graph with <em>another</em> set of properties.  Organdiae believes that creativity requires different organizational principles: one should be able to construct a graph according to whatever rules one chooses (tree, forest, k-connected, vertex-only: whatever) and that one should be able to change between graph types at will.</p>
+<p>Enter filters.  Filters, in Organdiae, permit graphs to form along certain conditions.  For example, adding a &#8220;forest&#8221; filter to a graph forces it to grow like a forest: Organdiae will generate error messages otherwise</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="n">Forest</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;abraham&#39;</span><span class="p">,</span><span class="s">&#39;isaac&#39;</span><span class="p">,</span><span class="s">&#39;jacob&#39;</span><span class="p">,</span><span class="s">&#39;esau&#39;</span><span class="p">,</span><span class="s">&#39;joseph&#39;</span><span class="p">,</span><span class="s">&#39;benjamin&#39;</span><span class="p">,</span><span class="s">&#39;father&#39;</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">dummy</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abraham</span>
+<span class="go">&lt;class &#39;organdiae.core.core.abraham&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">abraham</span><span class="p">,</span><span class="n">isaac</span><span class="p">,</span><span class="n">jacob</span><span class="p">,</span><span class="n">esau</span><span class="p">,</span><span class="n">joseph</span><span class="p">,</span><span class="n">benjamin</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">forest</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">abraham</span><span class="p">,</span><span class="n">isaac</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">isaac</span><span class="p">,</span><span class="n">jacob</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">isaac</span><span class="p">,</span><span class="n">esau</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">jacob</span><span class="p">,</span><span class="n">joseph</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">jacob</span><span class="p">,</span><span class="n">benjamin</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forest</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. isaac</span>
+<span class="go">     1. jacob</span>
+<span class="go">     2. joseph</span>
+<span class="go">     3. abraham</span>
+<span class="go">     4. benjamin</span>
+<span class="go">     5. esau</span>
+<span class="go">EDGES</span>
+<span class="go">     0. abraham --&gt; isaac</span>
+<span class="go">     1. isaac --&gt; jacob</span>
+<span class="go">     2. jacob --&gt; benjamin</span>
+<span class="go">     3. isaac --&gt; esau</span>
+<span class="go">     4. jacob --&gt; joseph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span> <span class="p">:</span> <span class="n">forest</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">isaac</span><span class="p">,</span> <span class="n">abraham</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">OrgandiaeError</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span> <span class="k">print</span> <span class="n">e</span>
+<span class="gp">...</span>
+<span class="go">Error adding edge to a forest.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">DiGraph</span><span class="o">.</span><span class="n">toGraphViz</span><span class="p">(</span><span class="n">forest</span><span class="p">,</span> <span class="s">&#39;bible&#39;</span><span class="p">,</span> <span class="n">program</span><span class="o">=</span><span class="s">&#39;dot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/bible.svg" type="image/svg+xml"><embed src="_images/bible.svg" type="image/svg+xml" /></object>
+<p>The reader will note in the above example, <tt class="docutils literal"><span class="pre">ng</span></tt> automatically adds the name to the <tt class="docutils literal"><span class="pre">__main__</span></tt> namespace of Python when <tt class="docutils literal"><span class="pre">name=True</span></tt>: a feature inspired by GUESS that allows for easy, human-centric access to data in an interpreted environment. <a class="footnote-reference" href="#f3" id="id1">[1]</a>  The command <tt class="docutils literal"><span class="pre">ae</span></tt> adds edges (which will be discussed later: for now, assume that edge is an object that builds a directed connection between two vertices).  Lastly, the &#8220;father&#8221; class, run through a function called <tt class="docutils literal"><span class="pre">sb</span></tt>, is simply a tag describing the relationship between elements.  More on this to come in the next section.</p>
+<p>Taking our brick examples before, if we would like bricks to operate under the conceptual restraint that they cannot &#8220;contain&#8221; anything, we can add a Vertex filter</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span> <span class="o">=</span> <span class="n">brick</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="n">Vertex</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hole</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;hole&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span> <span class="p">:</span> <span class="n">newbrick</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">hole</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">OrgandiaeError</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span> <span class="k">print</span> <span class="n">e</span>
+<span class="gp">...</span>
+<span class="go">Cannot add elements to a vertex.</span>
+</pre></div>
+</div>
+<p>Now, let&#8217;s say that we change our mind and our bricks have holes in them, permitting the addition of elements to these bricks like a pot or jar (but forbidding the introduction of edges).  We can swap out the Vertex filter for an Edgeless filter</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;inside&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="o">.</span><span class="n">df</span><span class="p">(</span><span class="n">Vertex</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="o">.</span><span class="n">af</span><span class="p">(</span><span class="n">Edgeless</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">holes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">holes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hole</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="n">newbrick</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">holes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. hole (hash 17021040)</span>
+<span class="go">     1. hole (hash 17021168)</span>
+<span class="go">     2. hole (hash 17021232)</span>
+<span class="go">EDGES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span> <span class="p">:</span> <span class="n">newbrick</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">holes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">holes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sb</span><span class="p">(</span><span class="n">inside</span><span class="p">))</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">OrgandiaeError</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span> <span class="k">print</span> <span class="n">e</span>
+<span class="gp">...</span>
+<span class="go">Cannot add edges to an edgeless graph.</span>
+</pre></div>
+</div>
+<p>And it works like a charm.  Organdiae defines several canonical filters for ease of use (Forest, Tree, Edgeless, Vertex) that are each described in the help section.</p>
+<p>Back to the afore-ignored edges.  To up the ante, Organdiae introduces a concept of Edges that takes its conceptual animus from open-source graphing libraries, providing certain utility functions for those paying special attention to order and time.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>It also allows for nasty namespace overwrites for the inattentive user!  An easy workaround is to run Python out of an interpretive shell that queries the user before name overwrites, which poses the opposite problem of being pestering.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="concepts3.html" title="Edges Part I (Features and Bugs)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="concepts1.html" title="Classes/Vertices and Instances/Graphs"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" >Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

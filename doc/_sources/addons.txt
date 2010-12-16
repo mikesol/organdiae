@@ -1,0 +1,10 @@
+.. addons
+
+********************************
+Add-ons
+********************************
+
+Organdiae doesn't have many add-ons yet, but she's growing!  All contributions are welcome.
+
+.. automodule:: organdiae.addons.plotter
+	:members:

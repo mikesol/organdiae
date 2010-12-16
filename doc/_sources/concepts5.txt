@@ -1,0 +1,15 @@
+.. concepts5
+
+.. _fifth-concept:
+
+Organdiae is meant to be used interactively
+=================================================
+
+Organdiae is heavily parasitic.  It lives in the Python interpreter.  You have already seen it use GraphViz and GNUPlot, and in the add-ons package, it also uses Matplotlib (more add-ons coming soon).  Why is it designed this way?  Why not bundle Organdiae as a lightweight wrapper around Python, or create a GUI front-end?  The reason is several-fold.
+
+#. GUI front-ends, when they attain a certain level of complexity, become more cumbersome than the code they are supposed to represent.  Instead, Organdiae's GraphViz back end allows the user to see the evolution of a network without feeling that this GUI hides some of Organdiae's functionality.  To attain the ease of manipulation that GUIs provide, Organdiae's methods and functions have very short, vi-inspired names and easy syntax for rapid development.  The :doc:`quickguide` covers all of these commands.
+#. Any limitation that Organdiae imposes on Python is effectively a limitation on the user.  The user should be able to comfortably run Organdiae in any Python environment.  For those who object to the way that Organdiae eats up the global namespace, it can be run in a nested interpreter.
+#. Organdiae employs a two-way approach to modularity.  On one end, it is a library and as such can be used with and for other projects in Python.  On the other hand, Organdiae has several points of access into its core functionality that allow the easy creation of add-ons and derivative classes (ie filters).  Finally, because Organdiae is written in 100% Python (and tested in both Jython and Python), modifying the source itself is easy and highly encouraged.
+
+Most importantly, Organdiae is meant to be used interactively, and as such, best-practices in Organdiae are no different than best-practices when using any interactive-based Python module.  It is for this reason that all code examples in the documentation are couched in the interactive interpreter.  For ideas on how one can integrate Organdiae into a Pythonic context to precompose, see the :doc:`tutorials`.
+

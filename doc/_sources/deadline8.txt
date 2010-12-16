@@ -1,0 +1,36 @@
+.. deadline8.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline8.*
+
+After an hour of reflection and paper-on-pencil meditation, you have it.  You scan all of your work and put it in Organdiae. ::
+
+	>>> scans = DiGraph('scans')
+	>>> for x in os.walk('scans') :
+	... 	for y in x[2] :
+	... 		scans.av(ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y)))))
+	... 
+	>>> g.av(scans)
+	
+Now, DJ, write that work!
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline8.rst.py>`.

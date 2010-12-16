@@ -1,0 +1,68 @@
+.. concepts6
+
+.. _sixth-concept:
+
+Bootstrapping and inheritance: Back to meta-classes
+===================================================
+
+Because Organdiae endeavors to be as lightweight as possible (rumor has it that its developers are trying to fit it in one line of code...), part of its functionality is undefined at compile time.  That is, like SuperCollider, it needs to be "compiled" every time it starts at runtime.  And, like SuperCollider, this needs to be fast.  And, like SuperCollider, we want a measure of "Just In Time" programming that allows for Organdiae to be progressively re-compiled without having to restart.  Organdiae does this by a two-tiered saving and loading process.  With respect to saving, you have already seen the line ``bs('sixConcepts')`` that initialized the session.  This creates a series of utility declarations and functions that make Organdiae easier to run.  The function ``bs`` itself is in ``./organdiae/core/bootstrap.py`` and can be copied to create other templates with other utility functions.  The second stage of saving is introduced by this ``bs`` function and is called as such ::
+
+	>>> pick()
+	WRITING jar2 TO sixConcepts.oie
+	WRITING newbrick TO sixConcepts.oie
+	WRITING g TO sixConcepts.oie
+	WRITING holst TO sixConcepts.oie
+	WRITING finalruff TO sixConcepts.oie
+	WRITING guiltyPleasures TO sixConcepts.oie
+	WRITING pot1 TO sixConcepts.oie
+	WRITING rudiments TO sixConcepts.oie
+	WRITING item TO sixConcepts.oie
+	WRITING forest TO sixConcepts.oie
+	WRITING jar1 TO sixConcepts.oie
+	WRITING sfg1 TO sixConcepts.oie
+	
+It's that easy.  Now, everything you've created in this session is saved.  Let's try something drastic.  First, we'll clear all names from the global namespace save certain essential ones that come with the interpreter.  Then, we'll reload this session and do some pacifier prints to make sure everything was read in correctly ::
+
+	>>> gkeys = globals().keys()
+	>>> untouchable = ['__builtins__', '__name__', '__doc__', '__package__']
+	>>> for key in gkeys :
+	... 	if key not in untouchable : del globals()[key]
+	... 
+	>>> from sixConcepts import *
+	>>> rudiments.p()
+	VERTICES
+	     0. ruff (hash 7815248)
+	     1. single drag (hash 7815536)
+	     2. ruff (hash 7815344)
+	     3. single drag (hash 7815632)
+	     4. flam (hash 7815568)
+	     5. single ratamacue (hash 7815376)
+	     6. single drag (hash 7815312)
+	     7. single ratamacue (hash 7815600)
+	     8. flam (hash 7815280)
+	     9. single paradiddle (hash 7815408)
+	     10. single ratamacue (hash 7815504)
+	     11. flam (hash 7815472)
+	     12. single paradiddle (hash 7815440)
+	EDGES
+	     0. flam (hash 7815472) --> single drag (hash 7815536)
+	     1. flam (hash 7815568) --> single ratamacue (hash 7815600)
+	     2. ruff (hash 7815344) --> flam (hash 7815472)
+	     3. ruff (hash 7815344) --> single paradiddle (hash 7815408)
+	     4. single paradiddle (hash 7815408) --> single paradiddle (hash 7815440)
+	     5. flam (hash 7815472) --> single ratamacue (hash 7815504)
+	     6. flam (hash 7815280) --> ruff (hash 7815344)
+	     7. single drag (hash 7815632) --> ruff (hash 7815248)
+	     8. single drag (hash 7815536) --> flam (hash 7815568)
+	     9. flam (hash 7815568) --> single drag (hash 7815632)
+	     10. flam (hash 7815280) --> single drag (hash 7815312)
+	     11. ruff (hash 7815344) --> single ratamacue (hash 7815376)
+
+Lastly, the function ``ng`` is a this wrapper for ``type`` that allows graphs to inherit from each other.  This allows Organdiae's behavior to be even more inheritance-full, and allows objects to really behave like, well, objects.
+
+	>>> instrument = ng('instrument')
+	>>> theremin = ng('theremin', instrument, age=88)
+	>>> issubclass(theremin, instrument)
+	True
+	>>> theremin.age
+	88

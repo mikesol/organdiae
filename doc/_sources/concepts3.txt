@@ -1,0 +1,52 @@
+.. concepts3
+
+.. _third-concept:
+
+Edges Part I (Features and Bugs)
+================================
+
+All edges in Organdiae are directed and tagged.  Thus, when a user types the following ::
+
+	>>> jupiter = ng('jupiter')
+	>>> planets = ng('the planets')
+	>>> movement = ng('movement')
+	>>> holst = DiGraph()
+	>>> holst.ae(jupiter,planets,sb(movement))
+
+She creates a directed edge from "jupiter" to "planets" with the tag "movement" ::
+
+	>>> holst.p()
+	VERTICES
+	     0. jupiter
+	     1. planets
+	EDGES
+	     0. jupiter --> planets
+
+Represented by the GraphViz backend as ::
+	
+	>>> gv(holst, path='holst1')
+
+.. image:: holst1.*
+
+To pre-empt the bug/feature debate, Organdiae believes that when constructing a conceptual "link" between two ideas, humans always think directionally, categorically, and in pairs of two.  For example, were one to remove the "movement" tag in the above group, one would not know in what respect "jupiter" were related to "the planets".  Furthermore, were one to remove the directionality, one would not know what was a movement of what.  To recap, Organdiae operates under the coded prejudice that no edge can be made between two things unless it contains both a tag AND a direction.
+
+That said, the clever user can get around these two prescriptions rather easily.  The user who omits an edge tag from any given edge will get the following result when using the bootstrap function gv ::
+
+	>>> mars = ng('the planets')
+	>>> holst.ae(mars,planets,sb())
+	>>> gv(holst, path='holst2')
+
+.. image:: holst2.*
+
+However, the user can change the session's bootstrap file to get around this constraint (see the section below on bootstrapping).  Furthermore, a user wanting to create an undirected edge between two things can (and shoud) express this as a "containing" instance, much like the aforementioned pots and jars.  For example ::
+
+	>>> soundFetishGroup = ng('sound fetish group')
+	>>> yngwie = ng('Yngwie Malmsteen solo')
+	>>> chalk = ng('nails on chalkboard')
+	>>> sfg1 = soundFetishGroup()
+	>>> sfg1.av(yngwie)
+	>>> sfg1.av(chalk)
+	>>> guiltyPleasures = DiGraph()
+	>>> guiltyPleasures.av(sfg1)
+	
+Here, "nails on chalkboard" and "Yngwie Malmsteen solo" are clumped in a "soundFetishGroup" to express an undirected edge between these two ideas.  This opens up the theoretical gateway for hypergraphs: if one considers this latter example to be an undirected edge in the Organdiae system, then undirected edges can contain multiple vertices.

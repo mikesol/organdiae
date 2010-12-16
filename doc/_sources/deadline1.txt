@@ -1,0 +1,48 @@
+.. deadline1.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline1.*
+
+A dissertating PhD student, you have been so busy writing your thesis that you've forgotten to compose for almost a year.  Eager to get back into the game, you see a competition for string trio and decide that, in spite of the fact that the deadline is in two weeks, you are going to enter it.  You sit down to write a piece, but nothing comes out.  Having heard about Organdiae from a friend, you download it, install it, and start a Python session with all of the ideas you have so far ::
+
+	>>> from organdiae import *
+	>>> bs('trio')
+	>>> g = DiGraph()
+	>>> for x in ['violin','viola','cello', 'plays','trio'] :
+	... 	ng(x, name=True)
+	... 
+	<class 'organdiae.core.core.violin'>
+	<class 'organdiae.core.core.viola'>
+	<class 'organdiae.core.core.cello'>
+	<class 'organdiae.core.core.plays'>
+	<class 'organdiae.core.core.trio'>
+	>>> g.ae(violin,trio,sb(plays))
+	>>> g.ae(viola,trio,sb(plays))
+	>>> g.ae(cello,trio,sb(plays))
+	>>> gv(g,path='ratherLimited')
+
+Well, that didn't help much.  To overcome this creative impasse, you decide to:
+
+* Start writing :doc:`algorithms <deadline2>` and see where that takes you.
+* Start at the :doc:`first bar <deadline3>` and see what comes out.
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline1.rst.py>`.

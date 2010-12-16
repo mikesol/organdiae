@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bootstrapping in Organdiae &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="API" href="api.html" />
+    <link rel="next" title="CFunction and Collections" href="collection.html" />
+    <link rel="prev" title="Organdiae’s core" href="core.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="collection.html" title="CFunction and Collections"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Organdiae’s core"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">API</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="core.html"
+                                  title="previous chapter">Organdiae&#8217;s core</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="collection.html"
+                                  title="next chapter">CFunction and Collections</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/bootstrap.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-organdiae.core.bootstrap">
+<h1>Bootstrapping in Organdiae<a class="headerlink" href="#module-organdiae.core.bootstrap" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="concepts1.html#first-concept"><em>first</em></a> of six points in <a class="reference external" href="concepts.html"><em>Organdiae in Six Concepts</em></a> introduces Organdiae&#8217;s bootstrapping mechanism with the function call to <tt class="docutils literal"><span class="pre">bs</span></tt>, and the <a class="reference external" href="concepts6.html#sixth-concept"><em>sixth</em></a> of these points explains said mechanism in more detail.  Currently, this module only contains one important function, <tt class="docutils literal"><span class="pre">bs</span></tt>, that creates a standard bootstrapping document.  Users, adventurous and non-adventurous alike, are encouraged to create other bootstrapping functions and throw them into this document.  And, if you include a docstring, said functions will even show up on this page when you build the docs!</p>
+<dl class="function">
+<dt id="organdiae.core.bootstrap.bs">
+<tt class="descclassname">organdiae.core.bootstrap.</tt><tt class="descname">bs</tt><big>(</big><em>path</em>, <em>nbuses=</em><span class="optional">[</span><span class="optional">]</span>, <em>cbuses=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#organdiae.core.bootstrap.bs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a bootstrap file at <cite>path</cite> for an organdiae session and loads pertinant variables into global namespace.</p>
+<p>Arugments:</p>
+<dl class="docutils">
+<dt><cite>path</cite></dt>
+<dd>The path of the file (.py will be automatically appended)</dd>
+<dt><cite>nbuses</cite></dt>
+<dd>A list of numerical buses to create in the standard bus function.</dd>
+<dt><cite>cbuses</cite></dt>
+<dd>A list of collection buses to create in the standard bus function.</dd>
+</dl>
+<p>Elements of both <cite>nbuses</cite> and <cite>cbuses</cite> should be single words beginning with capital letters, as they will be transformed into classes in the global namespace.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="n">nbuses</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Weight&#39;</span><span class="p">],</span> <span class="n">cbuses</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;Information&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sb</span><span class="p">()</span>
+<span class="go">{&lt;class &#39;organdiae.core.core.Tags&#39;&gt;: &lt;organdiae.core.core.CFunction object at 0x780930&gt;, &lt;class &#39;organdiae.core.core.Information&#39;&gt;: &lt;organdiae.core.core.CFunction object at 0x1052e10&gt;, &lt;class &#39;organdiae.core.core.Weight&#39;&gt;: &lt;organdiae.core.core.CFunction object at 0x1052e30&gt;}  </span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="collection.html" title="CFunction and Collections"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Organdiae’s core"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" >API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

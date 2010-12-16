@@ -1,0 +1,85 @@
+.. deadline9.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline9.*
+
+Listening to audio all the time is mentally taxing!  You want an algorithm to generate passages where they improvise to an audio track interspersed with passages where they are simply listening to each other.  And, of course, silence!  Violà ::
+
+	>>> for x in ['headphones','entrecouter','silence'] :
+	... 	ng(x, name=True)
+	... 
+	>>> import random
+	>>> def friendly(l) :
+	... 	opts = ['headphones','entrecouter','silence']
+	... 	out = [random.choice(opts)]
+	... 	for x in range(1,l) :
+	... 		newopts = opts[:]
+	... 		newopts.remove(opts[-1])
+	... 		out.append(random.choice(newopts))
+	... 	for x in out : print x
+	... 	return out
+	... 
+	>>> o = friendly(10)
+	entrecouter
+	headphones
+	headphones
+	entrecouter
+	headphones
+	entrecouter
+	headphones
+	entrecouter
+	entrecouter
+	entrecouter
+	>>> o2 = friendly(7)
+	entrecouter
+	headphones
+	headphones
+	entrecouter
+	entrecouter
+	entrecouter
+	headphones
+	>>> o2 = friendly(7)
+	headphones
+	headphones
+	headphones
+	entrecouter
+	entrecouter
+	headphones
+	headphones
+	
+You decide to go with the first option.  SAVE IT! ::
+
+	>>> order = DiGraph('piece order')
+	>>> follows = ng('follows')
+	>>> dv = globals()[o[0]]()
+	>>> order.av(dv)
+	>>> for x in range(1, len(o)) :
+	... 	nv = globals()[o[x]]()
+	... 	order.ae(dv,nv,sb(follows))
+	... 	dv=nv
+	... 
+	>>> g.av(order)
+	>>> pick()
+
+You're not sure about the timing, but you'll figure that out when you actually compose the work, unlike other composers, who may have been obsessed with timing in other journeys very much like yours...but who went a different direction...hint...hint...  Anyway, goodbye precomposition!  Hello sleep.
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline9.rst.py>`.

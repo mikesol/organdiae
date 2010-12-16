@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Polynomials &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="API" href="api.html" />
+    <link rel="next" title="Polynomial Utilities" href="polyu.html" />
+    <link rel="prev" title="CFunction and Collections" href="collection.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="polyu.html" title="Polynomial Utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="collection.html" title="CFunction and Collections"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">API</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="collection.html"
+                                  title="previous chapter">CFunction and Collections</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="polyu.html"
+                                  title="next chapter">Polynomial Utilities</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/polynomial.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-organdiae.core.polynomial">
+<h1>Polynomials<a class="headerlink" href="#module-organdiae.core.polynomial" title="Permalink to this headline">¶</a></h1>
+<p>This module exists to implement piecewise polynomials that eventually allow for convolution across buses.  In doing so, it implements polynomials, impulses, and delta functions as well.  Uses of these objects can be seen in the following documents: <a class="reference external" href="quickguide.html"><em>Quick Guide to Organdiae</em></a> and <a class="reference external" href="concepts.html"><em>Organdiae in Six Concepts</em></a>.</p>
+<dl class="class">
+<dt id="organdiae.core.polynomial.DeltaFunction">
+<em class="property">class </em><tt class="descclassname">organdiae.core.polynomial.</tt><tt class="descname">DeltaFunction</tt><big>(</big><em>tuples=()</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.DeltaFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>A representation of a piecewise polynomial given by <a class="reference external" href="concepts4.html#polge73">[Polge73]</a>.  This allows for easy convolution.
+It is really not meant to be touched, and as such, the docstrings are very minimal.</p>
+<dl class="method">
+<dt id="organdiae.core.polynomial.DeltaFunction.convolve">
+<tt class="descname">convolve</tt><big>(</big><em>d</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.DeltaFunction.convolve" title="Permalink to this definition">¶</a></dt>
+<dd>Convolves two delta functions, returning the result.  Consult the <a class="reference external" href="concepts1.html#first-concept"><em>first</em></a> of <a class="reference external" href="concepts.html"><em>Organdiae in Six Concepts</em></a> to see this method in action.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.DeltaFunction.isEmpty">
+<tt class="descname">isEmpty</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.DeltaFunction.isEmpty" title="Permalink to this definition">¶</a></dt>
+<dd>Like in <tt class="docutils literal"><span class="pre">Collection</span></tt>, this implementation of <tt class="docutils literal"><span class="pre">isEmpty</span></tt> is used by the crawler to see if a delta function has been initialized.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.DeltaFunction.piecewisePolynomial">
+<tt class="descname">piecewisePolynomial</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.DeltaFunction.piecewisePolynomial" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a a piecewise polynomial representation of the delta function.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.DeltaFunction.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.DeltaFunction.reset" title="Permalink to this definition">¶</a></dt>
+<dd>Resets the delta function to nothing.</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.polynomial.Impulse">
+<em class="property">class </em><tt class="descclassname">organdiae.core.polynomial.</tt><tt class="descname">Impulse</tt><big>(</big><em>magnitude</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A single impulse, to be used in piecewise polynomials.</p>
+<dl class="method">
+<dt id="organdiae.core.polynomial.Impulse.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Impulse.copy" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a copy of the impulse.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Impulse.round">
+<tt class="descname">round</tt><big>(</big><em>sig</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Impulse.round" title="Permalink to this definition">¶</a></dt>
+<dd>Rounds the impulse to <cite>sig</cite> significant figures</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial">
+<em class="property">class </em><tt class="descclassname">organdiae.core.polynomial.</tt><tt class="descname">PiecewisePolynomial</tt><big>(</big><em>polynomials=</em><span class="optional">[</span><span class="optional">]</span>, <em>pbounds=</em><span class="optional">[</span><span class="optional">]</span>, <em>impulses=</em><span class="optional">[</span><span class="optional">]</span>, <em>iplacements=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of a piecewise polynomial using polynomials and impulses.  Behaves exactly like polynomials do.
+All piecewise polynomials are implicitly cropped at 0 on either end.</p>
+<p>Example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">5.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mf">8.</span><span class="p">,</span><span class="mf">1.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p3</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">2.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i1</span> <span class="o">=</span> <span class="n">Impulse</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i2</span> <span class="o">=</span> <span class="n">Impulse</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pp1</span> <span class="o">=</span> <span class="n">PiecewisePolynomial</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">],[</span><span class="o">-</span><span class="mf">5.</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">6.</span><span class="p">],[],[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pp2</span> <span class="o">=</span> <span class="n">PiecewisePolynomial</span><span class="p">([</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">],[</span><span class="mf">2.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="mf">8.</span><span class="p">],[</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">],[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">4.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">pp1</span><span class="o">+</span><span class="n">pp2</span>
+<span class="go">POLYNOMIALS ::: (0,), None, -5.0 &gt;&gt; (3.0, 2.0, 0.0, 5.0), -5.0, 2.0 &gt;&gt; (3.0, -6.0, 1.0, 5.0), 2.0, 3.0 &gt;&gt; (0.0, 2.0, 0.0, 7.0), 3.0, 4.0 &gt;&gt; (-3.0, -8.0, 1.0, 2.0), 4.0, 5.0 &gt;&gt; (-6.0, 0.0, 0.0, 4.0), 5.0, 6.0 &gt;&gt; (-3.0, 0.0, 0.0, 2.0), 6.0, 8.0 &gt;&gt; (0,), 8.0, () ;;; IMPULSES ::: 2.0, 0.0 &gt;&gt; -1.2, 4.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">pp1</span><span class="o">-</span><span class="n">pp2</span>
+<span class="go">POLYNOMIALS ::: (0,), None, -5.0 &gt;&gt; (3.0, 2.0, 0.0, 5.0), -5.0, 2.0 &gt;&gt; (3.0, 10.0, -1.0, 5.0), 2.0, 3.0 &gt;&gt; (6.0, 2.0, 0.0, 3.0), 3.0, 4.0 &gt;&gt; (-3.0, 8.0, -1.0, 2.0), 4.0, 5.0 &gt;&gt; (0.0, 0.0, 0.0, 0.0), 5.0, 6.0 &gt;&gt; (-3.0, 0.0, 0.0, 2.0), 6.0, 8.0 &gt;&gt; (0,), 8.0, () ;;; IMPULSES ::: -2.0, 0.0 &gt;&gt; 1.2, 4.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">pp1</span><span class="o">*</span><span class="n">pp2</span>
+<span class="go">POLYNOMIALS ::: (0.0,), None, 2.0 &gt;&gt; (0.0, -24.0, -13.0, 2.0, -40.0, 5.0), 2.0, 3.0 &gt;&gt; (-9.0, -6.0, 0.0, -9.0, 4.0, 0.0, 10.0), 3.0, 4.0 &gt;&gt; (0.0, 24.0, -3.0, 0.0, -16.0, 2.0), 4.0, 5.0 &gt;&gt; (9.0, 0.0, 0.0, -12.0, 0.0, 0.0, 4.0), 5.0, 6.0 &gt;&gt; (0.0,), 6.0, () ;;; IMPULSES ::: 6.0, 0.0 &gt;&gt; -397.2, 4.</span>
+</pre></div>
+</div>
+<p>Note that multiplication, here, is different than convolution.
+Multiplication superimposes the two polynomials and multiplies their values.
+For convolution of PiecewisePolynomials, check out the <tt class="docutils literal"><span class="pre">DeltaFunction</span></tt> documentation.
+Exponentiation is not defined.</p>
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.convolve">
+<tt class="descname">convolve</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.convolve" title="Permalink to this definition">¶</a></dt>
+<dd>Shorthand for the following : <tt class="docutils literal"><span class="pre">self.deltaFunction().convolve(n.deltaFunction()).piecewisePolynomial()</span></tt></dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.deltaFunction">
+<tt class="descname">deltaFunction</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.deltaFunction" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a delta function version of the piecewise polynomial.  Useful in convolution.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.evaluate">
+<tt class="descname">evaluate</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd>Evaluates the piecewise polynomial at value <cite>n</cite></dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.g0integrator">
+<tt class="descname">g0integrator</tt><big>(</big><em>v</em>, <em>n=False</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.g0integrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solver for piecewise polynomials that never have negative area.
+<cite>v</cite> is the area you want, and the return value will give you the x you need to get that area.
+VERY strange results otherwise...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">PiecewisePolynomial</span><span class="p">([</span><span class="n">Polynomial</span><span class="p">(</span><span class="mf">11.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">),</span><span class="n">Polynomial</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">2.</span><span class="p">),</span><span class="n">Polynomial</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">2.3</span><span class="p">)],[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">4.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">6.</span><span class="p">],[],[])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">integrate</span><span class="p">()</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mf">4.1</span><span class="p">)</span>
+<span class="go">123.18316666666665</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">g0integrator</span><span class="p">(</span><span class="mf">123.18316666666665</span><span class="p">)</span>
+<span class="go">4.0999999999999996</span>
+</pre></div>
+</div>
+<p>OK so it&#8217;s not perfect...but almost!  Set <cite>n</cite> to if your v is 0-1 normalized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.initialize">
+<tt class="descname">initialize</tt><big>(</big><em>p</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.initialize" title="Permalink to this definition">¶</a></dt>
+<dd>Initializes a piecewise polynomial with the values of another one.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.integral">
+<tt class="descname">integral</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.integral" title="Permalink to this definition">¶</a></dt>
+<dd>Spits out the cumulative distribution function of the <tt class="docutils literal"><span class="pre">PiecewisePolynomial</span></tt>, discarding impulses
+(may be considered a bug by some...but for the moment I can&#8217;t figure out a better way to implement it).</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.isEmpty">
+<tt class="descname">isEmpty</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.isEmpty" title="Permalink to this definition">¶</a></dt>
+<dd>Checks to see if the piecewise polynomial has been initialized.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.normalizeIntegral">
+<tt class="descname">normalizeIntegral</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.normalizeIntegral" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a version of the piecewise polynomial so that the area under it sums up to 1.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.reflectY">
+<tt class="descname">reflectY</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.reflectY" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a new polynomial reflected about the y axis.
+Behaves just like its counterpart in <tt class="docutils literal"><span class="pre">Polynomial</span></tt>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.reset" title="Permalink to this definition">¶</a></dt>
+<dd>Resets the piecewise polynomial to contain nothing.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.round">
+<tt class="descname">round</tt><big>(</big><em>sig</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.round" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a new piecewise polynomial with coefficients rounded to <cite>sig</cite> significant figures.
+Behaves just like its counterpart in <tt class="docutils literal"><span class="pre">Polynomial</span></tt>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.scale">
+<tt class="descname">scale</tt><big>(</big><em>scalar</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.scale" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a scaled version of the piecewise polynomial by factor <cite>scalar</cite></dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.shift">
+<tt class="descname">shift</tt><big>(</big><em>amount</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.shift" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a new piecewise polynomial shifted along the x axis by <cite>amount</cite>.
+Behaves just like its counterpart in <tt class="docutils literal"><span class="pre">Polynomial</span></tt>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.PiecewisePolynomial.toGNUPlot">
+<tt class="descname">toGNUPlot</tt><big>(</big><em>fn</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.PiecewisePolynomial.toGNUPlot" title="Permalink to this definition">¶</a></dt>
+<dd>Exports a piecewise polynomial to GNUPlot.  Behaves just like its counterpart in <tt class="docutils literal"><span class="pre">Polynomial</span></tt>.</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.polynomial.Polynomial">
+<em class="property">class </em><tt class="descclassname">organdiae.core.polynomial.</tt><tt class="descname">Polynomial</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Polynomial that behaves like a polynomial should under addition, subtraction, and multiplication.</p>
+<p>Example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">5.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="o">-</span><span class="mf">8.</span><span class="p">,</span><span class="mf">1.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span>
+<span class="go">(3.0, -6.0, 1.0, 5.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p1</span><span class="o">-</span><span class="n">p2</span>
+<span class="go">(3.0, 10.0, -1.0, 5.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p1</span><span class="o">*</span><span class="n">p2</span>
+<span class="go">(0.0, -24.0, -13.0, 2.0, -40.0, 5.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p1</span><span class="o">**</span><span class="mi">2</span>
+<span class="go">(9.0, 12.0, 4.0, 30.0, 20.0, 0.0, 25.0)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.asStr">
+<tt class="descname">asStr</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.asStr" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a pretty-print representation of the polynomial.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.convolve">
+<tt class="descname">convolve</tt><big>(</big><em>p</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.convolve" title="Permalink to this definition">¶</a></dt>
+<dd>Same as multiplication.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.copy" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a copy of the current polynomial.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.differentiate">
+<tt class="descname">differentiate</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.differentiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new polynomial that is a derivative of the current one.</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">differentiate</span><span class="p">()</span>
+<span class="go">(2.0, -6.0, 1.5)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.evaluate">
+<tt class="descname">evaluate</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates the polynomial at n</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
+<span class="go">-6.5</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.integral">
+<tt class="descname">integral</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.integral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the indefinite integral, with 0.0 representing the constant</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.1415</span><span class="p">)</span>
+<span class="go">-5.472746127</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.integrate">
+<tt class="descname">integrate</tt><big>(</big><em>l</em>, <em>r</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.integrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrates the polynomial from <cite>l</cite> to <cite>r</cite>.</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.1415</span><span class="p">)</span>
+<span class="go">-5.472746127</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.lintegral">
+<tt class="descname">lintegral</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.lintegral" title="Permalink to this definition">¶</a></dt>
+<dd>Return the Polynomial for a definite integral starting at point <cite>l</cite>.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.reflectY">
+<tt class="descname">reflectY</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.reflectY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new polynomial reflected about the y axis.</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">reflectY</span><span class="p">()</span>
+<span class="go">(1.11, -2.0, -3.0, -0.5)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.round">
+<tt class="descname">round</tt><big>(</big><em>sig</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new polynomial with coefficients rounded to <cite>sig</cite> significant figures.</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.111111111</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">-6.5</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.shift">
+<tt class="descname">shift</tt><big>(</big><em>amount</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new polynomial shifted along the x axis by <cite>amount</cite>.</p>
+<dl class="docutils">
+<dt>Example ::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="mf">1.11</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(-2.89, -4.0, 0.0, 0.5)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.polynomial.Polynomial.toGNUPlot">
+<tt class="descname">toGNUPlot</tt><big>(</big><em>fn</em><big>)</big><a class="headerlink" href="#organdiae.core.polynomial.Polynomial.toGNUPlot" title="Permalink to this definition">¶</a></dt>
+<dd>Sends the polynomial to a gnuplot file named <cite>fn</cite>.  What you do with it is up to you.
+All of the examples in the help docs were generated via the svg viewer.</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="polyu.html" title="Polynomial Utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="collection.html" title="CFunction and Collections"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" >API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

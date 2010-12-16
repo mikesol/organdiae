@@ -1,0 +1,12 @@
+.. bootstrap
+
+********************************
+Bootstrapping in Organdiae
+********************************
+
+The :ref:`first <first-concept>` of six points in :doc:`concepts` introduces Organdiae's bootstrapping mechanism with the function call to ``bs``, and the :ref:`sixth <sixth-concept>` of these points explains said mechanism in more detail.  Currently, this module only contains one important function, ``bs``, that creates a standard bootstrapping document.  Users, adventurous and non-adventurous alike, are encouraged to create other bootstrapping functions and throw them into this document.  And, if you include a docstring, said functions will even show up on this page when you build the docs!
+
+.. automodule:: organdiae.core.bootstrap
+	:members:
+
+

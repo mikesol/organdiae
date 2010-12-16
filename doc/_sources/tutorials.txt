@@ -1,0 +1,18 @@
+.. tutorials
+
+***************************
+Tutorials
+***************************
+
+Organdiae is meant to be used interactively, and as such, it is impossible to explain its utility by simply showing a fully-finished network of ideas.  Thus, below, we present two choose-your-own-adventure stories where the hero, using Organdiae, moves through the program towards some sort of creative "goal".
+
+* :doc:`Deadline <deadline1>`.  You are a composer given a commission from a string trio.  Time is ticking.  No ideas no ideas no ideas.  Must organize thoughts.  Will you make the deadline? (Based on a true story!)
+* Fetish (under construction).  You really like Philip Guston's paintings.  You reaaallly like a set of sounds lifted from a recording session with soprano Emilie Lesbros.  And you are fascinated by Chekov's short stories, which you are currently making your way through.  There is something about all these things that, bizarrely, "belongs" together.  What? (Also based on a true story!)
+
+And because the makers of Organdiae believe in Organdiae, both of these choose-your-own-adventure stories were made using Organdiae, proving that it is at least useful enough to create compelling documentation tutorials.  The Organdiae session files for both "tutorias" can be downloaded here.
+
+.. note::
+	Want to write a choose-your-own-adventure using Organdiae?  If you write one that can be uploaded to this website (ie written in reStructuredText, Sphinx-readable, and lengthy enough to be didactic/useful), email it to `tutorials at organdiae dot com <mailto:tutorials@organdiae.com>`_ and we will inscribe your name in the Organdiae graph of fame (created using Organdiae).
+
+
+

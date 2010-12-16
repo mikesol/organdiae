@@ -1,0 +1,53 @@
+.. deadline2.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline2.*
+
+Good idea!  You write a simple algorithm to generate shaped random collections ::
+
+	>>> import random
+	>>> def rand_collect_length(l, f = lambda out, x : x, i=True, overshoot=True) :
+	... 	out = []
+	... 	sum = 0.0
+	... 	while sum < l :
+	... 		v = f(out,random.random())
+	... 		if i : v = round(v)
+	...			sum += v
+	...			out.append(v)
+	...		if not overshoot : out = out[:-1]
+	... 	return out
+	... 
+	>>> def rand_collect_times(t, f = lambda out, x : x, i=True) :
+	... 	out = []
+	... 	for x in range(t) :
+	... 		v = f(out,random.random())
+	... 		if i : v = round(v)
+	...			out.append(v)
+	... 	return out
+	... 
+	
+But alas you find yourself stuck again.  This algorithm has to be used to *do* something.  Do you want to...
+
+* Use the algorithm to structure :doc:`time <deadline4>` in the piece.
+* Use the algorithm to generate :doc:`quantities of material <deadline5>` in the piece.
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline2.rst.py>`.

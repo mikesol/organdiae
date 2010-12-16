@@ -1,0 +1,128 @@
+.. quickguide
+
+********************************
+Quick Guide to Organdiae
+********************************
+
+This guide is so quick that you'll miss it if you blink.  Organdiae's basic functionality is covered, an example is given, and you can download this example :download:`here <./quickguide.rst.py>`.  For more detail, consult the :doc:`api`.
+
+Built-In
+========
+
+The following functionality is built into Organdiae.
+
+* DiGraph
+	* av = add vertex
+	* avs = add vertices
+	* ae = add edge
+	* aes = add edges
+	* rv = remove vertex
+	* rvs = remove vertices
+	* re = remove edges
+	* res = remove edges
+	* p = print
+	* g = get
+* Edge
+	* ab = add bus
+	* rb = replace bus
+* Functions
+	* ng = named digraph
+	* bs = bootstrap
+	
+Bootstrap
+=========
+
+The following functionality is defined in the standard bootstrap file.
+
+* Functions
+	* sb = standard bus
+	* gv = to GraphViz
+	* pick = pickle everything in session
+* Filters
+	* F = Forest
+	* T = Tree
+	* V = Vertex
+	* E = Edgeless
+* Polynomials
+	* PP = PiecewisePolynomial
+	* P = Polynomial
+	* I = Impulse
+	* D = DeltaFunction
+* Crawler
+	* crawl_with_subgraphs
+	* crawl_without_subgraphs
+* Other
+	* CF = CFunction
+	* C = Collection
+	
+Example
+=======
+
+Most of the above in a handful of lines ::
+
+	>>> from organdiae import *
+	>>> bs('declaration')
+	>>> words = 'he sells sea shells by the sea shore'.split(' ')
+	>>> g = DiGraph()
+	>>> for word in set(words) :
+	... 	g.av(ng(word, name=True))
+	... 
+	>>> follows = ng('follows')
+	>>> for x in range(len(words)-1) :
+	... 	g.ae(globals()[words[x]], globals()[words[x+1]], sb(follows))	
+	... 
+	>>> gv(g, path='words', program='dot')
+	>>> h = DiGraph()
+	>>> h.avs(ng('state1', name=True),ng('state2', name=True),ng('state3', name=True),ng('state4',name=True))
+	>>> weighted = ng('weighted connection')
+	>>> e1 = Edge(state1, state2, sb(weighted))
+	>>> e2 = Edge(state1, state3, sb(weighted))
+	>>> e3 = Edge(state2, state4, sb(weighted))
+	>>> h.aes(e1, e2, e3)
+	>>> Weight = ng('Weight', return_type=PP)
+	>>> fstr = ['a = (args[0].deltaFunction().convolve(args[1].deltaFunction())).piecewisePolynomial()','a']
+	>>> h.p()
+	VERTICES
+	     0. state1
+	     1. state2
+	     2. state3
+	     3. state4
+	EDGES
+	     0. state1 --> state2
+	     1. state1 --> state3
+	     2. state2 --> state4
+	>>> h.g(1,0).ab(Weight, CF(fstrings=fstr,args=(PP([P((0.5,0.125)),P((0.,1.))],[-4.,0.,1.],[I(1.0)],[0.]),)))
+	>>> h.g(1,1).ab(Weight, CF(fstrings=fstr,args=(PP([P((-1.,1.)),P((3.,-1.))],[1.,2.,3.],[],[]),)))
+	>>> h.g(1,2).ab(Weight, CF(fstrings=fstr,args=(PP([P((1.,-1./3)),P((-3.,1.))],[0.,3.,4.],[],[]),)))
+	>>> gv(h, path='states', program='dot')
+	>>> Crawler.crawl_with_subgraphs([h],[[h.g(0,0)]],[[Weight]],[[PP([],[],[I(1.)],[0.])]])
+	>>> for edge in [e1,e2,e3] :
+	... 	edge._cf[Weight].toGNUPlot(edge._v2.ilsagitde+'.gnu')
+	... 
+	>>> pick()
+	
+This produces the following results.
+
+words.svg
+
+.. image:: words.svg
+
+states.svg
+
+.. image:: states.svg
+
+state2.svg
+
+.. image:: state2.svg
+
+state3.svg
+
+.. image:: state3.svg
+
+state4.svg
+
+.. image:: state4.svg
+
+To access words.svg, look in the folder *words* in your current working directory.  To access states.svg, look in the folder *states* in your current working directory.  These images are best viewed in Firefox.  The files *state2.svg*, *state3.svg*, and *state4.svg* were generated from *state2.gnu*, *state3.gnu*, and *state4.gnu* respectively using GNUPlot's svg viewer.  You should be able to type ``gnuplot state1.gnu`` on the command line to see an image of this file without exporting it to any particular file format.  To learn more about invoking gnuplot, see the `GNUPlot website <http://www.gnuplot.info>`_.
+
+Remove methods work just like their add sistren.

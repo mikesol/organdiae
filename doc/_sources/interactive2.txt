@@ -1,0 +1,49 @@
+.. interactive2
+============================================
+Organdiae's definition, made in organdiae
+============================================
+
+We're kinda obsessed... ::
+
+	>>> from organdiae import *
+	>>> bs('organdiae')
+	>>> g = DiGraph()
+	>>> g.av(ng('Organdi&aelig;'))
+	>>> organdiae = g.g(0,0)
+	>>> roots = ['organize', 'idea', 'organdie']
+	>>> root = ng('root') 
+	>>> for x in roots :
+	... 	ng(x,name=True)
+	... 
+	<class 'organdiae.core.core.organize'>
+	<class 'organdiae.core.core.idea'>
+	<class 'organdiae.core.core.organdie'>
+	>>> for x in roots :
+	... 	g.ae(globals()[x], organdiae, sb(root))
+	... 
+	>>> ng('pronunciation',name=True)
+	<class 'organdiae.core.core.pronunciation'>
+	>>> soundslike = ng("'&#596;r g&#601;n di")
+	>>> g.ae(soundslike,organdiae,sb(pronunciation))
+	>>> g.av(ng("Wallace Stevens's jar"))
+	>>> g.ae(ng('precomposition'),organdiae,sb(ng('usage')))
+	>>> gv(g)
+	>>> g.p()
+	VERTICES
+	     0. organize
+	     1. idea
+	     2. precomposition
+	     3. '&#596;r g&#601;n di
+	     4. Organdi&aelig;
+	     5. organdie
+	     6. Wallace Stevens's jar
+	EDGES
+	     0. organize --> Organdi&aelig;
+	     1. idea --> Organdi&aelig;
+	     2. organdie --> Organdi&aelig;
+	     3. '&#596;r g&#601;n di --> Organdi&aelig;
+	     4. precomposition --> Organdi&aelig;
+	
+And the output via the GraphViz backend...
+	
+.. image:: organdiae.svg 

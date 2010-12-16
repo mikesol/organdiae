@@ -1,0 +1,43 @@
+.. deadline7.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline7.*
+
+In for a penny, in for a pound.  This is going to be an algorithmic piece through and through, but before writing the algorithm, I want to know the range of possibilities it will generate.  Specifically, I want explore ways to group materials along two principal axes:
+
+* The more common a material is, the closer it will be to its neighbor.
+* The shorter a material is, the closer it will be to its neighbor
+
+To do this, I first parse up each material into sub-units via an algorithm ``parse_materials``.  I then create a bus called ``MiddlePlacement`` to control the arrival of a sound's midpoint.  Finally, I create several generative trees, all of which show the clustering of sounds ::
+
+	>>> a = 1
+
+To create the ``PiecewisePolynomial``s that govern the ``MiddlePlacement`` bus, I use Organdiae's ``breakpoint`` utility in add_ons ::
+
+	>>> a = 1
+
+For inexplicable, mystical reasons the third graph pleases you - you find its proportions strangely attractive, and you know that after using it as a general algorithm several times, you're sure to get a result you want.  But how can you use this as a generative algorithm?  ``PiecewisePolynomial`` has a function ``zo`` (for zero-one) that allows you to key in a value from 0-1 and get the corresponding point on the cumulative distribution function for said piecewise polynomial.  So, now ``PiecewisePolynomial`` is a random number generator!  For some reason, you don't trust Organdiae, so you set up a loop that calculates from this generator several times to see if the result spits out something that resembles the distribution.
+
+	>>> a = 1
+
+And sure enough it does!  You feel mildly guilty that you didn't trust Organdiae, but think that perhaps this will serve as a useful tutorial for others.  You are content that the laws of large numbers still work in 2010, and you go off to write the piece using this generator.  Thank you Organdiae!
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline7.rst.py>`.

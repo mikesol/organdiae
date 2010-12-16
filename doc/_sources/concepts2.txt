@@ -1,0 +1,86 @@
+.. concepts2
+
+.. _second-concept:
+
+Filtering graph growth
+======================
+Graph theory has defined several special graphs, such as "trees" and "k-connected graphs", that arise in several important theoretical and practical contexts.  Currently, all major mind-mapping software allows one to create only trees (1-connected graph with no simple loops) or forests (collections of these trees).  Major graph libraries tend to allow for the creation of several different graph types (ie JUNG allows for both forests and trees), but these are fixed decisions: once a tree, the graph will always be a tree unless all of the information is transfered to *another* graph with *another* set of properties.  Organdiae believes that creativity requires different organizational principles: one should be able to construct a graph according to whatever rules one chooses (tree, forest, k-connected, vertex-only: whatever) and that one should be able to change between graph types at will.
+
+Enter filters.  Filters, in Organdiae, permit graphs to form along certain conditions.  For example, adding a "forest" filter to a graph forces it to grow like a forest: Organdiae will generate error messages otherwise ::
+
+	>>> forest = DiGraph(filters=[Forest])
+	>>> for x in ['abraham','isaac','jacob','esau','joseph','benjamin','father'] :
+	...     dummy = ng(x, name=True)
+	... 
+	>>> abraham
+	<class 'organdiae.core.core.abraham'>
+	>>> for x in [abraham,isaac,jacob,esau,joseph,benjamin] :
+	...     forest.av(x)
+	... 
+	>>> forest.ae(abraham,isaac,sb(father))
+	>>> forest.ae(isaac,jacob,sb(father))
+	>>> forest.ae(isaac,esau,sb(father))
+	>>> forest.ae(jacob,joseph,sb(father))
+	>>> forest.ae(jacob,benjamin,sb(father))
+	>>> forest.p()
+	VERTICES
+	     0. isaac
+	     1. jacob
+	     2. joseph
+	     3. abraham
+	     4. benjamin
+	     5. esau
+	EDGES
+	     0. abraham --> isaac
+	     1. isaac --> jacob
+	     2. jacob --> benjamin
+	     3. isaac --> esau
+	     4. jacob --> joseph
+	>>> try : forest.ae(isaac, abraham, sb(father))
+	... except OrgandiaeError, e : print e
+	... 
+	Error adding edge to a forest.
+	>>> DiGraph.toGraphViz(forest, 'bible', program='dot')
+	
+.. image:: bible.*
+
+The reader will note in the above example, ``ng`` automatically adds the name to the ``__main__`` namespace of Python when ``name=True``: a feature inspired by GUESS that allows for easy, human-centric access to data in an interpreted environment. [#f3]_  The command ``ae`` adds edges (which will be discussed later: for now, assume that edge is an object that builds a directed connection between two vertices).  Lastly, the "father" class, run through a function called ``sb``, is simply a tag describing the relationship between elements.  More on this to come in the next section.
+
+Taking our brick examples before, if we would like bricks to operate under the conceptual restraint that they cannot "contain" anything, we can add a Vertex filter ::
+
+	>>> newbrick = brick(filters=[Vertex])
+	>>> hole = ng('hole')
+	>>> try : newbrick.av(hole)
+	... except OrgandiaeError, e : print e
+	...
+	Cannot add elements to a vertex.
+
+Now, let's say that we change our mind and our bricks have holes in them, permitting the addition of elements to these bricks like a pot or jar (but forbidding the introduction of edges).  We can swap out the Vertex filter for an Edgeless filter ::
+	
+	>>> ng('inside', name=True)
+	>>> newbrick.df(Vertex)
+	>>> newbrick.af(Edgeless)
+	True
+	>>> holes = []
+	>>> for x in range(3) : 
+	...     holes.append(hole())
+	...     newbrick.av(holes[-1])
+	... 
+	>>> newbrick.p()
+	VERTICES
+	     0. hole (hash 17021040)
+	     1. hole (hash 17021168)
+	     2. hole (hash 17021232)
+	EDGES
+	>>> try : newbrick.ae(holes[0], holes[1], sb(inside))
+	... except OrgandiaeError, e : print e
+	... 
+	Cannot add edges to an edgeless graph.
+
+And it works like a charm.  Organdiae defines several canonical filters for ease of use (Forest, Tree, Edgeless, Vertex) that are each described in the help section.
+
+Back to the afore-ignored edges.  To up the ante, Organdiae introduces a concept of Edges that takes its conceptual animus from open-source graphing libraries, providing certain utility functions for those paying special attention to order and time.
+
+.. rubric:: Footnotes
+
+.. [#f3] It also allows for nasty namespace overwrites for the inattentive user!  An easy workaround is to run Python out of an interpretive shell that queries the user before name overwrites, which poses the opposite problem of being pestering.

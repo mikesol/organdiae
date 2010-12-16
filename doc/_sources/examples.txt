@@ -1,0 +1,17 @@
+.. examples
+
+*************************************
+Downloadable Examples
+*************************************
+
+This page contains examples of medium-ish sized Organdiae projects that are currently underway.  If you are somebody who prefers a top-down learning approach, download these projects, open them up, and have at 'em.  For example, after unzipping the file cantata.tar.gz, you would cd into the directory cantata, start Python, and type ::
+
+	>>> from cantata import *
+
+To print the contents of the current graph, type ``g.p()`` in the interpreter, and to export to Graphviz, type ``gv(g)``.  A pre-exported version of said graph exists in the file <path>/<path>.svg, where <path> is the the same name as in <path>.tar.gz (in this above example, "cantata/cantata.svg").
+
+:download:`cantata <cantata.tar.gz>`
+	Cantata is loosely centered around a cantata written for Florent Cleron and Emilie Lesbros.
+	
+:download:`space <space.tar.gz>`
+	Space is a brainstorm for an installation in the Stanford Main Quad, d'après Sol LeWitt.

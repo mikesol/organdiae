@@ -1,0 +1,106 @@
+.. deadline5.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline5.*
+
+But what material do you want to use?  You do a bit of research and recording and find several constituent materials that you will use to build your piece.
+
+* Col legni
+* Jeté
+* Harmonics
+* Sul ponticello
+* Sotto ponticello pizzicatti
+* Bartok pizzicatti
+* Extreme pressure
+* Silence
+
+And in Organdiae... ::
+
+	>>> materials = DiGraph(ilsagitde='materials')
+	>>> fx = ['col_legni', 'jete', 'harmonic', 'sul_pont', 'sotto_pizz', 'bartok_pizz', 'xp', 'silence'] 
+	>>> for x in fx :
+	... 	ng(x, name=True)
+	... 	materials.av(globals()[x])
+	... 
+	<class 'organdiae.core.core.col_legni'>
+	<class 'organdiae.core.core.jete'>
+	<class 'organdiae.core.core.harmonic'>
+	<class 'organdiae.core.core.sul_pont'>
+	<class 'organdiae.core.core.sotto_pizz'>
+	<class 'organdiae.core.core.bartok_pizz'>
+	<class 'organdiae.core.core.xp'>
+	<class 'organdiae.core.core.silence'>
+	>>> g.av(materials)
+	>>> gv(g, path='trioMaterial')
+
+Now, you look at several distributions of the material and pick one that makes you happy.
+
+	>>> def dist_maker(fx=fx) :
+	... 	out = {}
+	... 	dist = rand_collect_times(t=len(fx), i=False)
+	... 	for x in range(len(fx)) :
+	...			out[fx[x]] = dist[x]
+	... 	for x in out : print x, out[x]
+	... 	return out
+	... 
+	>>> dist = dist_maker()
+	harmonic 0.567556269376
+	jete 0.542365094748
+	bartok_pizz 0.375702972316
+	col_legni 0.712038004427
+	sul_pont 0.269998928138
+	xp 0.341518239249
+	sotto_pizz 0.50886979351
+	silence 0.0513109364606
+	>>> dist = dist_maker()
+	harmonic 0.596224982203
+	jete 0.334100119239
+	bartok_pizz 0.777536688524
+	col_legni 0.337033758358
+	sul_pont 0.0403266683153
+	xp 0.100753867434
+	sotto_pizz 0.972505675946
+	silence 0.704361512351
+	>>> dist = dist_maker()
+	harmonic 0.88323926761
+	jete 0.446849650417
+	bartok_pizz 0.048427699242
+	col_legni 0.323799608452
+	sul_pont 0.880839808148
+	xp 0.131242927247
+	sotto_pizz 0.20689577745
+	silence 0.399231910778
+
+Third's a charm.  You find these proportions quite fulfilling for an inexplicable reason, especially because it gives you a lot of harmonics to work with.  Upon reflection, you realized that you would have written a piece using a lot of harmonics all along...you just needed the algorithm to prod you a little bit ::
+
+	>>> ng('fetish', name=True)
+	<class 'organdiae.core.core.fetish'>
+	>>> g.ae(harmonic, trio, sb(fetish))
+	>>> gv(g, path='trioFetish')
+
+You were all for this algorithm thing at first, but now, you doubt if you want to leave this harmonics texture in the hands of a computer.  But, on the other hand, it's you who controls the computer, and you've done all right so far...
+
+* :doc:`abandon the algorithmic approach <deadline6>`.
+* :doc:`continue the algorithmic approach <deadline7>`.
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline5.rst.py>`.

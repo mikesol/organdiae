@@ -1,0 +1,109 @@
+.. deadline3.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline3.*
+
+Intuition is great.  It's a shame that you have none.  So, you go shopping on the free sound library to do some listening and find ten sounds that make you happy.  You put them in a directory ``pillage`` and use os.walk to import them into your session. ::
+
+	>>> booty = DiGraph('sonic plunder')
+	>>> for x in os.walk('pillage') :
+	... 	for y in x[2] :
+	... 		booty.av(ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y)))))
+	... 
+	>>> booty.p()
+	VERTICES
+	     0. /private/tmp/deadline3.rst/pillage/cryingbaby.aif
+	     1. /private/tmp/deadline3.rst/pillage/singing_bowl.aif
+	     2. /private/tmp/deadline3.rst/pillage/old_engine.aif
+	     3. /private/tmp/deadline3.rst/pillage/japanese_conversation.aif
+	     4. /private/tmp/deadline3.rst/pillage/vacuum_cleaner.aif
+	     5. /private/tmp/deadline3.rst/pillage/cat.aif
+	     6. /private/tmp/deadline3.rst/pillage/train_whistle.aif
+	     7. /private/tmp/deadline3.rst/pillage/running_water.aif
+	     8. /private/tmp/deadline3.rst/pillage/mouse.aif
+	     9. /private/tmp/deadline3.rst/pillage/glassware.aif
+	EDGES
+	>>> g.av(booty)
+	
+.. note::
+	The files listed in this example are fictional.  Any resemblance to real files is coincidental.  For this reason, this example will not work on your machine unless you have these files/folders in your current working directory.  To download a zip of "dummy" files that can act as stand-ins (ie files, all of which are less than 1kb, that act as placeholders), click :download:`here <ofiles.tar.gz>`.
+	
+You add to this your favorite Emilie Lesbros sounds that you keep around for rainy and non-rainy days alike ::
+
+	>>> em = DiGraph('emilie lesbros sounds')
+	>>> for x in os.walk('emilie') :
+	... 	for y in x[2] :
+	... 		em.av(ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y)))))
+	... 
+	>>> em.p()
+	VERTICES
+	     0. /private/tmp/deadline3.rst/emilie/bubbles.aif
+	     1. /private/tmp/deadline3.rst/emilie/buzzzzzz.aif
+	     2. /private/tmp/deadline3.rst/emilie/pop.aif
+	     3. /private/tmp/deadline3.rst/emilie/freakout.aif
+	     4. /private/tmp/deadline3.rst/emilie/whistling.aif
+	     5. /private/tmp/deadline3.rst/emilie/laughter.aif
+	EDGES
+	>>> g.av(em)
+
+You like these sounds so much that you are hesitant to write a string trio anymore, wanting instead to be a DJ.  But why not?  You decide to write a work where the performers listen to your improvisation through headphones and respond to it.  You write some SuperCollider code to create these improvisations, bounce out a few, and load them all into your Organdiae graph ::
+
+	>>> scdict = {}
+	>>> scsess = DiGraph('supercollider goodness')
+	>>> for x in os.walk('scdocs') :
+	... 	for y in x[2] :
+	... 		scdict[y] = ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y))))
+	... 		scsess.av(scdict[y])
+	... 
+	... 
+	>>> example = ng('example')
+	>>> for x in os.walk('scbounces') :
+	... 	for y in x[2] :
+	... 		fileg = ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y))))
+	... 		scsess.ae(fileg, scdict[y.rpartition('.')[0].rpartition('.')[0]], sb(example))
+	... 
+	>>> g.av(scsess)
+	
+While you think this may be interesting for a while, you worry the piece will lack consistency.  So, you intersperse several "cues" throughout the score that allow for more traditional "playing together" like "Haydn".
+
+	>>> cues = DiGraph('cues')
+	>>> for x in os.walk('cues') :
+	... 	for y in x[2] :
+	... 		cues.av(ng(os.path.normpath(os.path.join(os.getcwd(),os.path.join(x[0],y)))))
+	... 
+	>>> cues.p()
+	VERTICES
+	     0. /private/tmp/deadline3.rst/cues/hummmm.txt
+	     1. /private/tmp/deadline3.rst/cues/descending.txt
+	     2. /private/tmp/deadline3.rst/cues/laugh.txt
+	     3. /private/tmp/deadline3.rst/cues/cry.txt
+	     4. /private/tmp/deadline3.rst/cues/sweet.txt
+	     5. /private/tmp/deadline3.rst/cues/problematic.txt
+	EDGES
+	>>> g.av(cues)
+
+Now, it's just a question of how to intersperse these "listenings" and these instrcutions.
+
+* :doc:`Intuition <deadline8>` has worked so far...keep going!
+* Time to write an :doc:`algorithm <deadline9>`.
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline3.rst.py>`.

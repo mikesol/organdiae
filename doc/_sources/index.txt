@@ -1,0 +1,33 @@
+.. Organdiae documentation master file, created by
+   sphinx-quickstart on Wed Mar 10 22:38:04 2010.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+*************************************
+Welcome to Organdiae's documentation!
+*************************************
+
+.. centered:: Organdiae is a mind-mapping tool for the precomposition of creative works designed for the Python interactive console.
+
+Organdiae is your buddy in the Python interpreter that rides with you throughout the creative process.  Unlike graphing suites like Gephi, Cytoscape, JUNG, and NetworkX, Organdiae is not meant to do analytics on pre-existing networks of data.  Unlike FreeMind, Compendium, and MindMapper, Organdiae is not meant to create multimedia mind-maps.  Unlike SuperCollider, Max/MSP, CSound, and other algorithmic creation suites, it is not meant to create works.  Rather, it is meant to create YOU as you create.  By offering flexible classes that allow you to organize your thoughts and media, create visualizations of these organizations, and model the uncertainty of these organizations, Organdiae lets you explore what matters to you.  In doing so, we hope that you *become* a better creator so that later, through other means, you can *be* more creative.
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+	Organdiae in Six Concepts<concepts>
+	Quick Guide<quickguide>
+	Tutorials<tutorials>
+	Downloadable examples<examples>
+	API<api>
+
+For an alternative definition of Organdiae that is more organdiaeic, click :doc:`here <interactive2>`.
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

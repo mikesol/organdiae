@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edges Part I (Features and Bugs) &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="Organdiae in Six Concepts" href="concepts.html" />
+    <link rel="next" title="Edges Part II (Getting Edgier)" href="concepts4.html" />
+    <link rel="prev" title="Filtering graph growth" href="concepts2.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="concepts4.html" title="Edges Part II (Getting Edgier)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="concepts2.html" title="Filtering graph growth"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" accesskey="U">Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="concepts2.html"
+                                  title="previous chapter">Filtering graph growth</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="concepts4.html"
+                                  title="next chapter">Edges Part II (Getting Edgier)</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/concepts3.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edges-part-i-features-and-bugs">
+<span id="third-concept"></span><h1>Edges Part I (Features and Bugs)<a class="headerlink" href="#edges-part-i-features-and-bugs" title="Permalink to this headline">¶</a></h1>
+<p>All edges in Organdiae are directed and tagged.  Thus, when a user types the following</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jupiter</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;jupiter&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">planets</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;the planets&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">movement</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;movement&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">holst</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">holst</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">jupiter</span><span class="p">,</span><span class="n">planets</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">movement</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>She creates a directed edge from &#8220;jupiter&#8221; to &#8220;planets&#8221; with the tag &#8220;movement&#8221;</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">holst</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. jupiter</span>
+<span class="go">     1. planets</span>
+<span class="go">EDGES</span>
+<span class="go">     0. jupiter --&gt; planets</span>
+</pre></div>
+</div>
+<p>Represented by the GraphViz backend as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">holst</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;holst1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/holst1.svg" type="image/svg+xml"><embed src="_images/holst1.svg" type="image/svg+xml" /></object>
+<p>To pre-empt the bug/feature debate, Organdiae believes that when constructing a conceptual &#8220;link&#8221; between two ideas, humans always think directionally, categorically, and in pairs of two.  For example, were one to remove the &#8220;movement&#8221; tag in the above group, one would not know in what respect &#8220;jupiter&#8221; were related to &#8220;the planets&#8221;.  Furthermore, were one to remove the directionality, one would not know what was a movement of what.  To recap, Organdiae operates under the coded prejudice that no edge can be made between two things unless it contains both a tag AND a direction.</p>
+<p>That said, the clever user can get around these two prescriptions rather easily.  The user who omits an edge tag from any given edge will get the following result when using the bootstrap function gv</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mars</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;the planets&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">holst</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">mars</span><span class="p">,</span><span class="n">planets</span><span class="p">,</span><span class="n">sb</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">holst</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;holst2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/holst2.svg" type="image/svg+xml"><embed src="_images/holst2.svg" type="image/svg+xml" /></object>
+<p>However, the user can change the session&#8217;s bootstrap file to get around this constraint (see the section below on bootstrapping).  Furthermore, a user wanting to create an undirected edge between two things can (and shoud) express this as a &#8220;containing&#8221; instance, much like the aforementioned pots and jars.  For example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">soundFetishGroup</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;sound fetish group&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yngwie</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;Yngwie Malmsteen solo&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chalk</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;nails on chalkboard&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sfg1</span> <span class="o">=</span> <span class="n">soundFetishGroup</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sfg1</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">yngwie</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sfg1</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">chalk</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">guiltyPleasures</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">guiltyPleasures</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">sfg1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, &#8220;nails on chalkboard&#8221; and &#8220;Yngwie Malmsteen solo&#8221; are clumped in a &#8220;soundFetishGroup&#8221; to express an undirected edge between these two ideas.  This opens up the theoretical gateway for hypergraphs: if one considers this latter example to be an undirected edge in the Organdiae system, then undirected edges can contain multiple vertices.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="concepts4.html" title="Edges Part II (Getting Edgier)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="concepts2.html" title="Filtering graph growth"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" >Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

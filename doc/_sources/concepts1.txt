@@ -1,0 +1,91 @@
+.. concepts1
+
+.. _first-concept:
+
+Classes/Vertices and Instances/Graphs
+=====================================
+The majority of graphing libraries, mind-mapping and graph-theoretical alike, offer the urelements of vertices, edges, and graphs by which a network can be structured.  Organdiae uses Python's built-in meta-class mechanisms (more specifically, the ``type`` type) to implement the distinction between vertices and graphs.  More specifically, every graph is an "instance" of what could be a vertex.  Take, for example ::
+
+	>>> from organdiae import *
+	>>> bs('sixConcepts')
+	>>> jar = ng('jar')
+	>>> pot = ng('pot')
+	>>> brick = ng('brick')
+	>>> g = DiGraph()
+	>>> g.av(jar)
+	>>> g.av(pot)
+	>>> g.av(brick)
+	>>> type(jar)
+	<type 'type'>
+	>>> issubclass(jar,DiGraph)
+	True
+
+For those keeping score, the last two commands show that ``jar`` is in fact a class, declared during runtime, that inherits from DiGraph.  The first two commands instantiate Organdiae and bootstrap a session called "sixConcepts" [#f2]_.  But more on this later.  Lines 2-8 of the above code defines a mind-map with three vertices: pot, jar, and brick.  Organdiae's pacifier print generates the following text ::
+
+	>>> g.p()
+	VERTICES
+	     0. jar
+	     1. pot
+	     2. brick
+	EDGES
+
+And, Organdiae's GraphViz backend generates the following graphical representation ::
+
+	>>> DiGraph.toGraphViz(g, 'ex1')
+
+.. image:: ex1.*
+
+.. note::
+	To access this image, look in the folder *ex1* in your current working directory.  The image, ex1.svg, is best viewed in Firefox.
+
+Here, we have represented the abstract concepts of "pots", "jars", and "bricks".  But what if we wanted to create two jars, one pot, and fill them with several distinct bricks.  We may now do the following ::
+
+	>>> jar1 = jar()
+	>>> jar2 = jar()
+	>>> pot1 = pot()
+	>>> for item in [jar1, jar2, pot1] :              
+	... 	for x in range(2) :
+	... 		item.av(brick())
+	...		g.av(item)
+	...
+	>>> g.p()
+	VERTICES
+	    0. jar
+	    1. brick
+	    2. jar (hash 7865328)
+	    3. pot (hash 7865392)
+	    4. pot
+	    5. jar (hash 7865104)
+	EDGES
+
+The resultant graph is ::
+
+	>>> DiGraph.toGraphViz(g, 'ex2')
+
+.. image:: ex2.*
+
+And clicking on the red region "pot (hash 7865392)", the real image (ie not the one you're looking at now) would take you to:
+
+.. image:: O2tfy8o4IyY2APSC2fqq55rlEmUjSpdfr8eTSX66.*
+
+That is, we have clicked on an instance of "pot" that contains three "brick" instances.  In general, instances are identified by the text "(hash X)", where X is the unique hash given to them by Python.  You can change this by setting the ``ilsagitde`` value of the instance ::
+
+	>>> newbrick = brick()
+	>>> newbrick()
+	'brick (hash 744368)'
+	>>> newbrick.ilsagitde = 'special brick instance'
+	>>> newbrick()
+	'special brick instance'
+
+Lastly, the GraphViz back-end hyperlinks automatically to all files with a valid pathname.  So, were one to create a subclass (or instance) of DiGraph with an ``ilsagitde`` that pointed to a valid file path, the result would be clickable and would lead to a representation, in your browser, of that media (assuming that the browser could support said media).  For example, to create a vertex that brings your browser to a file */tmp/foo.txt*, you just need to type ::
+
+	>>> txt = ng('/tmp/foo.txt')
+
+In this way, Organdiae allows for the visualization/auralization of media in case you forget what you're dealing with, or in French, *de quoi il s'agit* (ergo the name ``ilsagitde``).
+
+There are two important things to note before moving on.  First, the overarching graph (the one containing the two pots, one jar, and the three original vertices) is itself an instance of the base class DiGraph.  All other classes that we've created (pot, jar, and brick here) inherit from this class (more on inheritance later).  The second is that, if one wanted to, she could in theory fill the "brick" instances as she filled the "pot" and "jar" instances.  While conceptually admissible, we'd like to be able to constrain graph behavior so that individual instances of DiGraph (sub)classes behave in certain ways.  Segue to :doc:`concepts2`.
+
+
+.. rubric:: Footnotes
+
+.. [#f2] This writes a file sixConcepts.py to the current working directory and fails if said filename is already taken.  Note that, when starting a session in any folder, <sessionName>.py, <sessionName>.oie.classdefs, and <sessionName>.oie.normal will be written to that folder.  Erasing any of these erases the session, so be careful!

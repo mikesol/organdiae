@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classes/Vertices and Instances/Graphs &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="Organdiae in Six Concepts" href="concepts.html" />
+    <link rel="next" title="Filtering graph growth" href="concepts2.html" />
+    <link rel="prev" title="Organdiae in Six Concepts" href="concepts.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="concepts2.html" title="Filtering graph growth"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="concepts.html" title="Organdiae in Six Concepts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" accesskey="U">Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="concepts.html"
+                                  title="previous chapter">Organdiae in Six Concepts</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="concepts2.html"
+                                  title="next chapter">Filtering graph growth</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/concepts1.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="classes-vertices-and-instances-graphs">
+<span id="first-concept"></span><h1>Classes/Vertices and Instances/Graphs<a class="headerlink" href="#classes-vertices-and-instances-graphs" title="Permalink to this headline">¶</a></h1>
+<p>The majority of graphing libraries, mind-mapping and graph-theoretical alike, offer the urelements of vertices, edges, and graphs by which a network can be structured.  Organdiae uses Python&#8217;s built-in meta-class mechanisms (more specifically, the <tt class="docutils literal"><span class="pre">type</span></tt> type) to implement the distinction between vertices and graphs.  More specifically, every graph is an &#8220;instance&#8221; of what could be a vertex.  Take, for example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">organdiae</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bs</span><span class="p">(</span><span class="s">&#39;sixConcepts&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;jar&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pot</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;pot&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">brick</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;brick&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">jar</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">pot</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">brick</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">jar</span><span class="p">)</span>
+<span class="go">&lt;type &#39;type&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">issubclass</span><span class="p">(</span><span class="n">jar</span><span class="p">,</span><span class="n">DiGraph</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>For those keeping score, the last two commands show that <tt class="docutils literal"><span class="pre">jar</span></tt> is in fact a class, declared during runtime, that inherits from DiGraph.  The first two commands instantiate Organdiae and bootstrap a session called &#8220;sixConcepts&#8221; <a class="footnote-reference" href="#f2" id="id1">[1]</a>.  But more on this later.  Lines 2-8 of the above code defines a mind-map with three vertices: pot, jar, and brick.  Organdiae&#8217;s pacifier print generates the following text</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">     0. jar</span>
+<span class="go">     1. pot</span>
+<span class="go">     2. brick</span>
+<span class="go">EDGES</span>
+</pre></div>
+</div>
+<p>And, Organdiae&#8217;s GraphViz backend generates the following graphical representation</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">DiGraph</span><span class="o">.</span><span class="n">toGraphViz</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s">&#39;ex1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/ex1.svg" type="image/svg+xml"><embed src="_images/ex1.svg" type="image/svg+xml" /></object>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To access this image, look in the folder <em>ex1</em> in your current working directory.  The image, ex1.svg, is best viewed in Firefox.</p>
+</div>
+<p>Here, we have represented the abstract concepts of &#8220;pots&#8221;, &#8220;jars&#8221;, and &#8220;bricks&#8221;.  But what if we wanted to create two jars, one pot, and fill them with several distinct bricks.  We may now do the following</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">jar1</span> <span class="o">=</span> <span class="n">jar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jar2</span> <span class="o">=</span> <span class="n">jar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pot1</span> <span class="o">=</span> <span class="n">pot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="n">jar1</span><span class="p">,</span> <span class="n">jar2</span><span class="p">,</span> <span class="n">pot1</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">item</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">brick</span><span class="p">())</span>
+<span class="gp">... </span>            <span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">p</span><span class="p">()</span>
+<span class="go">VERTICES</span>
+<span class="go">    0. jar</span>
+<span class="go">    1. brick</span>
+<span class="go">    2. jar (hash 7865328)</span>
+<span class="go">    3. pot (hash 7865392)</span>
+<span class="go">    4. pot</span>
+<span class="go">    5. jar (hash 7865104)</span>
+<span class="go">EDGES</span>
+</pre></div>
+</div>
+<p>The resultant graph is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">DiGraph</span><span class="o">.</span><span class="n">toGraphViz</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s">&#39;ex2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<object data="_images/ex2.svg" type="image/svg+xml"><embed src="_images/ex2.svg" type="image/svg+xml" /></object>
+<p>And clicking on the red region &#8220;pot (hash 7865392)&#8221;, the real image (ie not the one you&#8217;re looking at now) would take you to:</p>
+<object data="_images/O2tfy8o4IyY2APSC2fqq55rlEmUjSpdfr8eTSX66.svg" type="image/svg+xml"><embed src="_images/O2tfy8o4IyY2APSC2fqq55rlEmUjSpdfr8eTSX66.svg" type="image/svg+xml" /></object>
+<p>That is, we have clicked on an instance of &#8220;pot&#8221; that contains three &#8220;brick&#8221; instances.  In general, instances are identified by the text &#8220;(hash X)&#8221;, where X is the unique hash given to them by Python.  You can change this by setting the <tt class="docutils literal"><span class="pre">ilsagitde</span></tt> value of the instance</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span> <span class="o">=</span> <span class="n">brick</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="p">()</span>
+<span class="go">&#39;brick (hash 744368)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="o">.</span><span class="n">ilsagitde</span> <span class="o">=</span> <span class="s">&#39;special brick instance&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newbrick</span><span class="p">()</span>
+<span class="go">&#39;special brick instance&#39;</span>
+</pre></div>
+</div>
+<p>Lastly, the GraphViz back-end hyperlinks automatically to all files with a valid pathname.  So, were one to create a subclass (or instance) of DiGraph with an <tt class="docutils literal"><span class="pre">ilsagitde</span></tt> that pointed to a valid file path, the result would be clickable and would lead to a representation, in your browser, of that media (assuming that the browser could support said media).  For example, to create a vertex that brings your browser to a file <em>/tmp/foo.txt</em>, you just need to type</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">txt</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;/tmp/foo.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this way, Organdiae allows for the visualization/auralization of media in case you forget what you&#8217;re dealing with, or in French, <em>de quoi il s&#8217;agit</em> (ergo the name <tt class="docutils literal"><span class="pre">ilsagitde</span></tt>).</p>
+<p>There are two important things to note before moving on.  First, the overarching graph (the one containing the two pots, one jar, and the three original vertices) is itself an instance of the base class DiGraph.  All other classes that we&#8217;ve created (pot, jar, and brick here) inherit from this class (more on inheritance later).  The second is that, if one wanted to, she could in theory fill the &#8220;brick&#8221; instances as she filled the &#8220;pot&#8221; and &#8220;jar&#8221; instances.  While conceptually admissible, we&#8217;d like to be able to constrain graph behavior so that individual instances of DiGraph (sub)classes behave in certain ways.  Segue to <a class="reference external" href="concepts2.html"><em>Filtering graph growth</em></a>.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This writes a file sixConcepts.py to the current working directory and fails if said filename is already taken.  Note that, when starting a session in any folder, &lt;sessionName&gt;.py, &lt;sessionName&gt;.oie.classdefs, and &lt;sessionName&gt;.oie.normal will be written to that folder.  Erasing any of these erases the session, so be careful!</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="concepts2.html" title="Filtering graph growth"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="concepts.html" title="Organdiae in Six Concepts"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" >Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

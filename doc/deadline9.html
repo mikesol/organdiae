@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DEADLINE &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">DEADLINE</a><ul>
+<li><a class="reference external" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/deadline9.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="deadline">
+<h1>DEADLINE<a class="headerlink" href="#deadline" title="Permalink to this headline">¶</a></h1>
+<object data="_images/deadline9.svg" type="image/svg+xml"><embed src="_images/deadline9.svg" type="image/svg+xml" /></object>
+<p>Listening to audio all the time is mentally taxing!  You want an algorithm to generate passages where they improvise to an audio track interspersed with passages where they are simply listening to each other.  And, of course, silence!  Violà</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;headphones&#39;</span><span class="p">,</span><span class="s">&#39;entrecouter&#39;</span><span class="p">,</span><span class="s">&#39;silence&#39;</span><span class="p">]</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ng</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">friendly</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">opts</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;headphones&#39;</span><span class="p">,</span><span class="s">&#39;entrecouter&#39;</span><span class="p">,</span><span class="s">&#39;silence&#39;</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">opts</span><span class="p">)]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">l</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>            <span class="n">newopts</span> <span class="o">=</span> <span class="n">opts</span><span class="p">[:]</span>
+<span class="gp">... </span>            <span class="n">newopts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">opts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">... </span>            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">newopts</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span> <span class="p">:</span> <span class="k">print</span> <span class="n">x</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">out</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="n">friendly</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="go">headphones</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="go">entrecouter</span>
+<span class="go">entrecouter</span>
+<span class="go">entrecouter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o2</span> <span class="o">=</span> <span class="n">friendly</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="go">headphones</span>
+<span class="go">entrecouter</span>
+<span class="go">entrecouter</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o2</span> <span class="o">=</span> <span class="n">friendly</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">headphones</span>
+<span class="go">headphones</span>
+<span class="go">headphones</span>
+<span class="go">entrecouter</span>
+<span class="go">entrecouter</span>
+<span class="go">headphones</span>
+<span class="go">headphones</span>
+</pre></div>
+</div>
+<p>You decide to go with the first option.  SAVE IT!</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">order</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="s">&#39;piece order&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">follows</span> <span class="o">=</span> <span class="n">ng</span><span class="p">(</span><span class="s">&#39;follows&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dv</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]]()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">order</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">nv</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">o</span><span class="p">[</span><span class="n">x</span><span class="p">]]()</span>
+<span class="gp">... </span>    <span class="n">order</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">dv</span><span class="p">,</span><span class="n">nv</span><span class="p">,</span><span class="n">sb</span><span class="p">(</span><span class="n">follows</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="n">dv</span><span class="o">=</span><span class="n">nv</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pick</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You&#8217;re not sure about the timing, but you&#8217;ll figure that out when you actually compose the work, unlike other composers, who may have been obsessed with timing in other journeys very much like yours...but who went a different direction...hint...hint...  Anyway, goodbye precomposition!  Hello sleep.</p>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference external" href="modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference external" href="search.html"><em>Search Page</em></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It&#8217;s ok to cheat...click here to see <a href="_downloads/deadlineOPS.svg"><strong class="xref">all possible options</strong></a>.
+Also, if you want to download the source code up until this point, click <a href="_downloads/deadline9.rst.py"><strong class="xref">here</strong></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+.. deadline6.rst
+
+**********************
+DEADLINE
+********************** 
+
+.. toctree::
+  :hidden:
+  
+  deadline8
+  deadline9             
+
+.. image:: deadline6.*
+
+You are so in love with the harmonics that you decide the first part of the piece will be about that, and the rest will be the work's tragic meandering through several non-harmonics textures, never to find its beauty in harmonics again.  You consider several organization schemes ::
+
+	>>> def makeorder(d) :
+	... 	k = d.keys()
+	... 	knh = [x for x in k if x != 'harmonic']
+	... 	kh = [x for x in k if x == 'harmonic']
+	... 	random.shuffle(knh)
+	...		k = kh + knh
+	... 	k = [(x, d[x]) for x in k]
+	...		for item in k :
+	... 		print item
+	... 	return k
+	... 
+	>>> o = makeorder(dist)
+	harmonic 0.88323926761
+	col_legni 0.323799608452
+	silence 0.399231910778
+	bartok_pizz 0.048427699242
+	jete 0.446849650417
+	sotto_pizz 0.20689577745
+	xp 0.131242927247
+	sul_pont 0.880839808148
+	>>> o = makeorder(dist)
+	harmonic 0.88323926761
+	silence 0.399231910778
+	jete 0.446849650417
+	sul_pont 0.880839808148
+	col_legni 0.323799608452
+	xp 0.131242927247
+	bartok_pizz 0.048427699242
+	sotto_pizz 0.20689577745
+	>>> o = makeorder(dist)
+	harmonic 0.88323926761
+	jete 0.446849650417
+	sotto_pizz 0.20689577745
+	bartok_pizz 0.048427699242
+	col_legni 0.323799608452
+	silence 0.399231910778
+	xp 0.131242927247
+	sul_pont 0.880839808148
+	>>> o = makeorder(dist)
+	harmonic 0.88323926761
+	sul_pont 0.880839808148
+	col_legni 0.323799608452
+	jete 0.446849650417
+	xp 0.131242927247
+	bartok_pizz 0.048427699242
+	sotto_pizz 0.20689577745
+	silence 0.399231910778
+
+You decide to go with this last one.  SAVE IT! ::
+
+	>>> order = DiGraph('piece order')
+	>>> follows = ng('follows')
+	>>> dv = globals()[o[0][0]](o[0][1])
+	>>> order.av(dv)
+	>>> for x in range(1, len(o)) :
+	... 	nv = globals()[o[x][0]](o[x][1])
+	... 	order.ae(dv,nv,sb(follows))
+	... 	dv=nv
+	... 
+	>>> g.av(order)
+	>>> pick()
+	
+Congratulations!  Now, go compose that work!
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. note::
+  It's ok to cheat...click here to see :download:`all possible options <deadlineOPS.svg>`.
+  Also, if you want to download the source code up until this point, click :download:`here <deadline6.rst.py>`.

@@ -1,0 +1,20 @@
+.. api
+
+***
+API
+***
+
+Organdiae's API resembles an auto-generated javadoc insofar as it lists module pages, each of which lists classes and functions (the functions being the non-Java-like part) that Organdiae's creators documented (which is almost everything).
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+	organdiae.core.core<core>
+	organdiae.core.bootstrap<bootstrap>
+	organdiae.core.collection<collection>
+	organdiae.core.polynomial<polynomial>
+	organdiae.core.polyu<polyu>
+	organdiae.addons<addons>
+

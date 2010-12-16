@@ -1,0 +1,21 @@
+INSTALLATION
+************
+
+To install, type at the command line:
+
+python setup.py build
+python setup.py install
+
+The former builds organdiae, and the latter installs it into your python
+directory.  After this, you can dispense with the present folder unless you
+want to guard the docs or the source code.  The documentation can also be
+found online at www.organdiae.com .
+
+Alternatively, you can use the traditional:
+
+make
+make install
+make clean # optional
+
+This is simply a wrapper for the python build and install mechanism.
+There is no config file.

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CFunction and Collections &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="API" href="api.html" />
+    <link rel="next" title="Polynomials" href="polynomial.html" />
+    <link rel="prev" title="Bootstrapping in Organdiae" href="bootstrap.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="polynomial.html" title="Polynomials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bootstrap.html" title="Bootstrapping in Organdiae"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" accesskey="U">API</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="bootstrap.html"
+                                  title="previous chapter">Bootstrapping in Organdiae</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="polynomial.html"
+                                  title="next chapter">Polynomials</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/collection.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-organdiae.core.collection">
+<h1>CFunction and Collections<a class="headerlink" href="#module-organdiae.core.collection" title="Permalink to this headline">¶</a></h1>
+<p>This module provides a class called <tt class="docutils literal"><span class="pre">CFunction</span></tt> that allows the <tt class="docutils literal"><span class="pre">Crawler</span></tt> to move along Edge buses as well as a <tt class="docutils literal"><span class="pre">Collection</span></tt> class that provides a trivial implementation of a CFunction return value (it is used to implement <tt class="docutils literal"><span class="pre">Tags</span></tt> in the <a class="reference external" href="bootstrap.html"><em>standard bootstrap</em></a>).  Uses of CFunction can be seen in the following documents: <a class="reference external" href="quickguide.html"><em>Quick Guide to Organdiae</em></a> and <a class="reference external" href="concepts.html"><em>Organdiae in Six Concepts</em></a>.</p>
+<dl class="class">
+<dt id="organdiae.core.collection.CFunction">
+<em class="property">class </em><tt class="descclassname">organdiae.core.collection.</tt><tt class="descname">CFunction</tt><big>(</big><em>fstrings</em>, <em>args</em><big>)</big><a class="headerlink" href="#organdiae.core.collection.CFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Every entry in <tt class="docutils literal"><span class="pre">edge.f</span></tt>, where <tt class="docutils literal"><span class="pre">edge</span></tt> is an instance of <tt class="docutils literal"><span class="pre">Edge</span></tt>, MUST be an instance of <tt class="docutils literal"><span class="pre">CFunction</span></tt> (or subclassed from <tt class="docutils literal"><span class="pre">CFunction</span></tt>).</p>
+<p>Here&#8217;s how it works (assume that <tt class="docutils literal"><span class="pre">cf</span></tt> is an instance of <tt class="docutils literal"><span class="pre">CFunction</span></tt>:</p>
+<ul class="simple">
+<li>A list of lines of code are in <tt class="docutils literal"><span class="pre">cf.fstrings</span></tt> that will be Just-In-Time compiled every time a function is called.  The last line of fstrings must be the return value.</li>
+<li>All predefined arguments to said function are in <tt class="docutils literal"><span class="pre">args</span></tt>.</li>
+<li>When <tt class="docutils literal"><span class="pre">cf</span></tt> is called, the arguments with which it is called are post-pended to the above-defined args list.  The function generated from fstrings is evaluated, and the return value is passed out.</li>
+</ul>
+<p>Why so complicated?  Because Python cannot pickle functions, so they need to be JIT compiled.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="organdiae.core.collection.Collection">
+<em class="property">class </em><tt class="descclassname">organdiae.core.collection.</tt><tt class="descname">Collection</tt><big>(</big><em>s=None</em><big>)</big><a class="headerlink" href="#organdiae.core.collection.Collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>One of two pre-defined return types for <tt class="docutils literal"><span class="pre">CFunction</span></tt>.  Used with <tt class="docutils literal"><span class="pre">Tags</span></tt> in the standard bootstrap (<tt class="docutils literal"><span class="pre">bs</span></tt>).</p>
+<dl class="method">
+<dt id="organdiae.core.collection.Collection.initialize">
+<tt class="descname">initialize</tt><big>(</big><em>y</em><big>)</big><a class="headerlink" href="#organdiae.core.collection.Collection.initialize" title="Permalink to this definition">¶</a></dt>
+<dd>A delayed init function, used by CFunctions to set self.s.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.collection.Collection.isEmpty">
+<tt class="descname">isEmpty</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.collection.Collection.isEmpty" title="Permalink to this definition">¶</a></dt>
+<dd>Returns true if self.s is not initialized with some sort of collection.</dd></dl>
+
+<dl class="method">
+<dt id="organdiae.core.collection.Collection.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#organdiae.core.collection.Collection.reset" title="Permalink to this definition">¶</a></dt>
+<dd>Resets self.s back to None.</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="polynomial.html" title="Polynomials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bootstrap.html" title="Bootstrapping in Organdiae"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="api.html" >API</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

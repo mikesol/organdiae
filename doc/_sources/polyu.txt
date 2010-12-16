@@ -1,0 +1,10 @@
+.. polyu
+
+********************************
+Polynomial Utilities
+********************************
+
+This module provides convenience functions for the generation of piecewise polynomials.  Uses of these objects can be seen in the following documents: :doc:`quickguide` and :doc:`concepts`.
+
+.. automodule:: organdiae.core.polyu
+	:members:

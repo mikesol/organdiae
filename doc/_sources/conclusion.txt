@@ -1,0 +1,12 @@
+.. conclusion
+
+Conclusion
+==========
+
+It should be clear by now that Organdiae is potentially useful for anyone who wants to organize ideas in a non-heirarchical, generative, formalized, and/or community-based manner.  Its roots in musical composition are purely linked to the needs from which it was born: not a limiting conception of the program's utility.  That said, like all parent-offspring pairs, Organdiae cannot help but having inherited some tendencies (*voire* prejudices) from her progenitor that are unique to composition.  But composition as defined by Herbert Brun, not Fux.  Brun writes, for example:
+
+	The story would show composers to be motivated by a more-or-less decrease of information in the systems through which they see their world at any given time; even the systems they love exhibit symptoms of decay and stagnation, and all they can do is retard the final curtain by creating systems wherein that which passes swiftly in reality would stay alive a little longer in an analogy. It does not matter much in what language and in which terminology composers happen to think their thoughts: their concepts of what is to be music next are always related to some technological considerations, and this relationship ranges from extreme subtlety to gross obviousness. ... If ever there will be a technological era worth talking about, it will be thanks to technologists and composers. By their joint efforts, extended over a prolonged period, they may contrive to emancipate thought from language sufficiently for a rehabilitation of both, and continuing from that, introduce an era for mankind where every thought has its language, and where all people have at their disposal a device that will respond to each person's input according to the language stipulated by that person. [Brun70]_
+
+.. [Brun70] Brun, H. “Technology and the composer.”, 1970. URL http://www.herbertbrun.org/techcomp.html.
+
+If Organdiae strives for anything, it is to finally give composers (and artists in general) a shot at achieving the above-stated goal.

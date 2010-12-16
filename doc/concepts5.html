@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Organdiae is meant to be used interactively &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" />
+    <link rel="up" title="Organdiae in Six Concepts" href="concepts.html" />
+    <link rel="next" title="Bootstrapping and inheritance: Back to meta-classes" href="concepts6.html" />
+    <link rel="prev" title="Edges Part II (Getting Edgier)" href="concepts4.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="concepts6.html" title="Bootstrapping and inheritance: Back to meta-classes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="concepts4.html" title="Edges Part II (Getting Edgier)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" accesskey="U">Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="concepts4.html"
+                                  title="previous chapter">Edges Part II (Getting Edgier)</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="concepts6.html"
+                                  title="next chapter">Bootstrapping and inheritance: Back to meta-classes</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/concepts5.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="organdiae-is-meant-to-be-used-interactively">
+<span id="fifth-concept"></span><h1>Organdiae is meant to be used interactively<a class="headerlink" href="#organdiae-is-meant-to-be-used-interactively" title="Permalink to this headline">¶</a></h1>
+<p>Organdiae is heavily parasitic.  It lives in the Python interpreter.  You have already seen it use GraphViz and GNUPlot, and in the add-ons package, it also uses Matplotlib (more add-ons coming soon).  Why is it designed this way?  Why not bundle Organdiae as a lightweight wrapper around Python, or create a GUI front-end?  The reason is several-fold.</p>
+<ol class="arabic simple">
+<li>GUI front-ends, when they attain a certain level of complexity, become more cumbersome than the code they are supposed to represent.  Instead, Organdiae&#8217;s GraphViz back end allows the user to see the evolution of a network without feeling that this GUI hides some of Organdiae&#8217;s functionality.  To attain the ease of manipulation that GUIs provide, Organdiae&#8217;s methods and functions have very short, vi-inspired names and easy syntax for rapid development.  The <a class="reference external" href="quickguide.html"><em>Quick Guide to Organdiae</em></a> covers all of these commands.</li>
+<li>Any limitation that Organdiae imposes on Python is effectively a limitation on the user.  The user should be able to comfortably run Organdiae in any Python environment.  For those who object to the way that Organdiae eats up the global namespace, it can be run in a nested interpreter.</li>
+<li>Organdiae employs a two-way approach to modularity.  On one end, it is a library and as such can be used with and for other projects in Python.  On the other hand, Organdiae has several points of access into its core functionality that allow the easy creation of add-ons and derivative classes (ie filters).  Finally, because Organdiae is written in 100% Python (and tested in both Jython and Python), modifying the source itself is easy and highly encouraged.</li>
+</ol>
+<p>Most importantly, Organdiae is meant to be used interactively, and as such, best-practices in Organdiae are no different than best-practices when using any interactive-based Python module.  It is for this reason that all code examples in the documentation are couched in the interactive interpreter.  For ideas on how one can integrate Organdiae into a Pythonic context to precompose, see the <a class="reference external" href="tutorials.html"><em>Tutorials</em></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="concepts6.html" title="Bootstrapping and inheritance: Back to meta-classes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="concepts4.html" title="Edges Part II (Getting Edgier)"
+             >previous</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li>
+          <li><a href="concepts.html" >Organdiae in Six Concepts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

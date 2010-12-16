@@ -1,0 +1,58 @@
+.. interactive
+
+============================================
+Organdiae's definition, made in organdiae
+============================================
+	>>> g = DiGraph()
+	>>> g.av(ng('Organdi&aelig;'))
+	>>> organdiae = g.g(0,0)
+	>>> roots = ['organize', 'idea', 'organdie']
+	>>> root = ng('root') 
+	>>> for x in roots :
+	... 	ng(x,name=True)
+	... 
+	<class 'organdiae.core.core.organize'>
+	<class 'organdiae.core.core.idea'>
+	<class 'organdiae.core.core.organdie'>
+	>>> for x in roots :
+	... 	g.ae(globals()[x], organdiae, sb(root))
+	... 
+	>>> ng('pronunciation',name=True)
+	<class 'organdiae.core.core.pronunciation'>
+	>>> g.ae(ng('pronounciation'),pronunciation,sb(ng('habitual orthographic error')))
+	>>> pronunciations = ["'&#596;r g&#601; , na&#618;z", "a&#618; ' di&#601;", "'&#596;r g&#601;n di"]
+	>>> pclasses = []
+	>>> for x in range(len(roots)) :
+	... 	pclasses.append(ng(pronunciations[x]))
+	...     g.ae(pclasses[-1],globals()[roots[x]],sb(pronunciation))
+	... 
+	>>> g.ae(ng('&aelig;'),organdiae,sb(ng('mildly pretentious,\\nsnarky usage of grapheme')))
+	>>> g.av(ng("Wallace Stevens's jar"))
+	>>> g.ae(ng('precomposition'),organdiae,sb(ng('usage')))
+	>>> g.ae(pclasses[-1], organdiae,sb(pronunciation))
+	>>> gv(g)
+	>>> g.p()
+	VERTICES
+	     0. organize
+	     1. idea
+	     2. a&#618; ' di&#601;
+	     3. pronounciation
+	     4. organdie
+	     5. precomposition
+	     6. '&#596;r g&#601; , na&#618;z
+	     7. Organdi&aelig;
+	     8. '&#596;r g&#601;n di
+	     9. pronunciation
+	     10. &aelig;
+	     11. Wallace Stevens's jar
+	EDGES
+	     0. idea --> Organdi&aelig;
+	     1. '&#596;r g&#601; , na&#618;z --> organize
+	     2. precomposition --> Organdi&aelig;
+	     3. '&#596;r g&#601;n di --> Organdi&aelig;
+	     4. a&#618; ' di&#601; --> idea
+	     5. organize --> Organdi&aelig;
+	     6. '&#596;r g&#601;n di --> organdie
+	     7. organdie --> Organdi&aelig;
+	     8. pronounciation --> pronunciation
+	     9. &aelig; --> Organdi&aelig;

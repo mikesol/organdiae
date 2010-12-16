@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DEADLINE &mdash; Organdiae v0.0.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '0.0.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Organdiae v0.0.2 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo4.gif" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">DEADLINE</a><ul>
+<li><a class="reference external" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/deadline5.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="deadline">
+<h1>DEADLINE<a class="headerlink" href="#deadline" title="Permalink to this headline">¶</a></h1>
+<object data="_images/deadline5.svg" type="image/svg+xml"><embed src="_images/deadline5.svg" type="image/svg+xml" /></object>
+<p>But what material do you want to use?  You do a bit of research and recording and find several constituent materials that you will use to build your piece.</p>
+<ul class="simple">
+<li>Col legni</li>
+<li>Jeté</li>
+<li>Harmonics</li>
+<li>Sul ponticello</li>
+<li>Sotto ponticello pizzicatti</li>
+<li>Bartok pizzicatti</li>
+<li>Extreme pressure</li>
+<li>Silence</li>
+</ul>
+<p>And in Organdiae...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">materials</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">ilsagitde</span><span class="o">=</span><span class="s">&#39;materials&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fx</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;col_legni&#39;</span><span class="p">,</span> <span class="s">&#39;jete&#39;</span><span class="p">,</span> <span class="s">&#39;harmonic&#39;</span><span class="p">,</span> <span class="s">&#39;sul_pont&#39;</span><span class="p">,</span> <span class="s">&#39;sotto_pizz&#39;</span><span class="p">,</span> <span class="s">&#39;bartok_pizz&#39;</span><span class="p">,</span> <span class="s">&#39;xp&#39;</span><span class="p">,</span> <span class="s">&#39;silence&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fx</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ng</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">materials</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="n">x</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="go">&lt;class &#39;organdiae.core.core.col_legni&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.jete&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.harmonic&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.sul_pont&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.sotto_pizz&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.bartok_pizz&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.xp&#39;&gt;</span>
+<span class="go">&lt;class &#39;organdiae.core.core.silence&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">av</span><span class="p">(</span><span class="n">materials</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;trioMaterial&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, you look at several distributions of the material and pick one that makes you happy.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">dist_maker</span><span class="p">(</span><span class="n">fx</span><span class="o">=</span><span class="n">fx</span><span class="p">)</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">... </span>    <span class="n">dist</span> <span class="o">=</span> <span class="n">rand_collect_times</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">fx</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fx</span><span class="p">))</span> <span class="p">:</span>
+<span class="gp">... </span>                    <span class="n">out</span><span class="p">[</span><span class="n">fx</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">out</span> <span class="p">:</span> <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">out</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist_maker</span><span class="p">()</span>
+<span class="go">harmonic 0.567556269376</span>
+<span class="go">jete 0.542365094748</span>
+<span class="go">bartok_pizz 0.375702972316</span>
+<span class="go">col_legni 0.712038004427</span>
+<span class="go">sul_pont 0.269998928138</span>
+<span class="go">xp 0.341518239249</span>
+<span class="go">sotto_pizz 0.50886979351</span>
+<span class="go">silence 0.0513109364606</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist_maker</span><span class="p">()</span>
+<span class="go">harmonic 0.596224982203</span>
+<span class="go">jete 0.334100119239</span>
+<span class="go">bartok_pizz 0.777536688524</span>
+<span class="go">col_legni 0.337033758358</span>
+<span class="go">sul_pont 0.0403266683153</span>
+<span class="go">xp 0.100753867434</span>
+<span class="go">sotto_pizz 0.972505675946</span>
+<span class="go">silence 0.704361512351</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">dist_maker</span><span class="p">()</span>
+<span class="go">harmonic 0.88323926761</span>
+<span class="go">jete 0.446849650417</span>
+<span class="go">bartok_pizz 0.048427699242</span>
+<span class="go">col_legni 0.323799608452</span>
+<span class="go">sul_pont 0.880839808148</span>
+<span class="go">xp 0.131242927247</span>
+<span class="go">sotto_pizz 0.20689577745</span>
+<span class="go">silence 0.399231910778</span>
+</pre></div>
+</div>
+<p>Third&#8217;s a charm.  You find these proportions quite fulfilling for an inexplicable reason, especially because it gives you a lot of harmonics to work with.  Upon reflection, you realized that you would have written a piece using a lot of harmonics all along...you just needed the algorithm to prod you a little bit</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ng</span><span class="p">(</span><span class="s">&#39;fetish&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;class &#39;organdiae.core.core.fetish&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">ae</span><span class="p">(</span><span class="n">harmonic</span><span class="p">,</span> <span class="n">trio</span><span class="p">,</span> <span class="n">sb</span><span class="p">(</span><span class="n">fetish</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gv</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&#39;trioFetish&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You were all for this algorithm thing at first, but now, you doubt if you want to leave this harmonics texture in the hands of a computer.  But, on the other hand, it&#8217;s you who controls the computer, and you&#8217;ve done all right so far...</p>
+<ul class="simple">
+<li><a class="reference external" href="deadline6.html"><em>abandon the algorithmic approach</em></a>.</li>
+<li><a class="reference external" href="deadline7.html"><em>continue the algorithmic approach</em></a>.</li>
+</ul>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference external" href="modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference external" href="search.html"><em>Search Page</em></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It&#8217;s ok to cheat...click here to see <a href="_downloads/deadlineOPS.svg"><strong class="xref">all possible options</strong></a>.
+Also, if you want to download the source code up until this point, click <a href="_downloads/deadline5.rst.py"><strong class="xref">here</strong></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Organdiae v0.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Mike Solomon.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+.. concepts
+
+********************************
+Organdiae in Six Concepts
+********************************
+
+The following presents six concepts [#f1]_ around which Organdiae is designed.  The order of presentation is mostly to create cliffhangers between the sections, although there is probably some hierarchical logic at play too.
+
+.. toctree::
+
+	concepts1
+	concepts2
+	concepts3
+	concepts4
+	concepts5
+	concepts6
+	conclusion
+
+Before reading these documents, if you are not familiar with Python, read `this <http://wiki.python.org/moin/BeginnersGuide>`_ first.  Organdiae will be of little practical value to you if you do not feel comfortable in the Python interpreter.
+
+.. rubric:: Footnotes
+
+.. [#f1] The code in these examples really does work.  That is, it can all be entered, in order, to recreate every step shown in the following six documents.  Said code can be downloaded :download:`here <./concepts.rst.py>`.
